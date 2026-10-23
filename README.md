@@ -1,23 +1,37 @@
-# OTMABINKS FITNESS
+# OTMABINKS — Training Club
 
-Application statique en français : sélection des sept jours, programme modifiable, cases à cocher, progression hebdomadaire, historique des semaines, notes et import/export JSON. Adaptée aux téléphones et utilisable sans compte.
+Application personnelle en français, refondue dans une direction sportive et épurée : blanc cassé, noir, photographie monochrome et accent orange. Identité OTMABINKS indépendante, inspirée de la clarté éditoriale des applications de sport.
 
-## Publication sur GitHub Pages
+## Programme d’origine
 
-Dans **Settings → Pages → Build and deployment**, choisir **Deploy from a branch**, puis **main** et **/(root)**, et cliquer sur **Save**.
+Les 7 jours et les 30 exercices sont repris **à l’identique** du fichier fourni `otmabinks_fitness.html` : noms, équipements, séries, répétitions, durées et précautions. Une copie intacte est conservée dans `originals/otmabinks_fitness-v1.html`. Le prompt de direction artistique est dans `DESIGN-BRIEF.md`.
 
-Adresse attendue après le premier déploiement : https://hasboulouch.github.io/otmabinks-fitness/
+## Fonctions
 
-## Programme
+- Sept boutons de jours, navigation entre les semaines, coches par exercice et progression.
+- Validation de séance (coche aussi les exercices), annulation de validation et réinitialisation avec confirmation.
+- Compteur limité aux 6 séances : le dimanche de récupération ne l’augmente pas.
+- Carnet personnel global, sauvegardé automatiquement dans ce navigateur.
+- Export complet JSON version 2 et import validé avant confirmation du remplacement.
+- Les anciens exports `{checks, complete, notes}` sont compatibles et placés dans la semaine actuelle. Sur le même domaine, l’ancienne sauvegarde `otma_fit_tracker_v1` est reprise automatiquement, sans la supprimer. La version précédente du site utilise une autre clé et reste intacte.
+- Navigation clavier, libellés accessibles, focus visible et réduction des animations.
 
-Le HTML et les exercices du chat original n'étaient pas accessibles lors de l'installation. Aucun exercice n'a été inventé. Cliquer sur **Modifier la séance** pour renseigner chaque jour : nom, exercices, séries, répétitions/durée et repos. Le programme est commun aux semaines ; les cases et les notes sont conservées séparément pour chaque semaine. Modifier ou retirer un exercice change les totaux historiques du programme ; les anciennes validations restent dans l'export.
+Aucune donnée de suivi n’est envoyée sur GitHub. Le stockage est propre au navigateur et à l’adresse du site : exporter depuis l’ancien fichier, puis importer sur le site, pour transférer ses données. Les fichiers HTML locaux n’ont pas toujours un stockage persistant selon le navigateur.
 
-## Données personnelles
+## GitHub Pages
 
-Le suivi est conservé uniquement dans le stockage local du navigateur, sans serveur ni synchronisation entre appareils. Une suppression des données du navigateur peut effacer le suivi. **Exporter** télécharge un fichier JSON comprenant programme, cases et notes ; **Importer** valide un export version 1 puis demande confirmation avant de remplacer les données locales. Les sauvegardes ne sont jamais envoyées au dépôt GitHub. La police Google Fonts est facultative ; sans réseau, les polices du système prennent le relais.
+Dans **Settings → Pages → Build and deployment**, choisir **Deploy from a branch**, puis **main** et **/(root)**, puis **Save**. Adresse attendue : https://hasboulouch.github.io/otmabinks-fitness/
 
-## Développement
+## Version autonome
 
-Servir ce dossier avec un serveur HTTP statique, par exemple `python3 -m http.server 8080`. Aucune installation ni compilation nécessaire. Vérifications du modèle de données : `node --test tests/core.test.cjs`.
+`otmabinks_fitness_pro.html` contient les styles, les scripts, le programme et la photographie. Il peut être ouvert directement, sans dépendance réseau. Les sources séparées servent le site GitHub Pages.
 
-Le programme initial volontairement vide et l'impossibilité de récupérer l'ancien HTML sont explicités dans l'interface. L'application ne prétend pas reproduire les exercices non accessibles du chat précédent.
+## Vérification
+
+`node --test tests/core.test.cjs` vérifie l’identité du programme, la migration des anciennes sauvegardes, le compteur de séances, l’export/import, le rejet des données invalides et les frontières de semaines.
+
+Aperçu local : `python3 -m http.server 8080 --bind 127.0.0.1`.
+
+## Photo
+
+Photographie de salle de sport : Unsplash, identifiant `photo-1534438327276-14e5300c3a48`, https://images.unsplash.com/photo-1534438327276-14e5300c3a48. Traitement monochrome par CSS. Aucun asset de Nike n’est utilisé.

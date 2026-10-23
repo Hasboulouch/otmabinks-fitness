@@ -1,24 +1,8 @@
-const test=require('node:test');
-const assert=require('node:assert/strict');
-const {initial,validate,monday,offset,progress}=require('../app.js');
-test('week boundaries use local dates across year and daylight saving transitions',()=>{
-  assert.equal(monday(new Date('2026-01-01T12:00:00')),'2025-12-29');
-  assert.equal(monday(new Date('2026-10-25T12:00:00')),'2026-10-19');
-  assert.equal(offset('2026-10-26',7),'2026-11-02');
-});
-test('export round trip preserves program, notes and historical checks',()=>{
- const data=initial(); data.plan[0].exercises=[{id:'e_1',name:'Exercice test',sets:'3',reps:'8',rest:'60 s'}];
- data.weeks['2026-10-19']=Array.from({length:7},()=>({notes:'',done:[]}));data.weeks['2026-10-19'][0]={notes:'Charge test <script>',done:['e_1']};
- assert.deepEqual(validate(JSON.parse(JSON.stringify(data))),data);
- assert.deepEqual(progress(data.plan,data.weeks['2026-10-19']),{total:1,done:1,percent:100});
- assert.deepEqual(progress(data.plan,data.weeks['2026-10-26']),{total:1,done:0,percent:0});
-});
-test('import rejects malformed data, duplicate identifiers and invalid dates',()=>{
- assert.throws(()=>validate({version:2})); const data=initial();data.plan[0].exercises=[{id:'x',name:'a',sets:'',reps:'',rest:''},{id:'x',name:'b',sets:'',reps:'',rest:''}];assert.throws(()=>validate(data));
- const invalid=initial();invalid.weeks['2026-02-30']=[];assert.throws(()=>validate(invalid));
- const proto=JSON.parse('{"version":1,"plan":[],"weeks":{"__proto__":{}}}');assert.throws(()=>validate(proto));
-});
-test('empty plan and stale checks do not inflate progress',()=>{
- const data=initial();assert.deepEqual(progress(data.plan),{total:0,done:0,percent:0});
- data.plan[0].exercises=[{id:'new'}];assert.deepEqual(progress(data.plan,[{done:['old']}]),{total:1,done:0,percent:0});
-});
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const F=require('../app.js');
+test('le programme conserve exactement tous les exercices du fichier source',()=>{const src=fs.readFileSync('originals/otmabinks_fitness-v1.html','utf8');const old=vm.runInNewContext('('+src.match(/const days=(\[.*?\]);\nconst KEY/s)[1]+')');assert.equal(JSON.stringify(F.program),JSON.stringify(old));assert.equal(F.program.reduce((n,d)=>n+d.items.length,0),30);});
+test('migration v1 : notes, cases et séances conservées dans la bonne semaine',()=>{const old={checks:{'0:0':true,'5:6':false},complete:{0:true,6:true},notes:'40 kg — bonne séance'};const migrated=F.validate(old,'2026-10-19');assert.equal(migrated.notes,old.notes);assert.deepEqual(migrated.weeks['2026-10-19'],{checks:old.checks,complete:old.complete});assert.equal(F.stats(migrated.weeks['2026-10-19']).completed,1);});
+test('le dimanche ne peut pas faire dépasser le compteur de six',()=>{const w=F.emptyWeek();for(let i=0;i<7;i++)w.complete[i]=true;assert.equal(F.stats(w).completed,6);});
+test('export/import v2 sans perte et semaines indépendantes',()=>{const d=F.validate({checks:{'1:2':true},complete:{1:true},notes:'<script>texte</script>'},'2026-10-19');assert.deepEqual(F.validate(JSON.parse(JSON.stringify(d))),d);assert.equal(F.stats(d.weeks['2026-10-19']).done,1);assert.equal(F.stats(d.weeks['2026-10-26']).done,0);});
+test('imports invalides rejetés avant modification',()=>{for(const d of [null,[],{}, {notes:42},{checks:{'0:99':true}}, {checks:{'0:0':'yes'}}, {version:3}, {version:2,notes:'',weeks:{'2026-02-30':F.emptyWeek()}},JSON.parse('{"checks":{"__proto__":true}}')])assert.throws(()=>F.validate(d));});
+test('semaines correctes au nouvel an et changement d’heure',()=>{assert.equal(F.monday(new Date('2026-01-01T12:00:00')),'2025-12-29');assert.equal(F.monday(new Date('2026-10-25T12:00:00')),'2026-10-19');assert.equal(F.offset('2026-10-26',7),'2026-11-02');});
