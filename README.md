@@ -24,7 +24,7 @@ Dans **Settings → Pages → Build and deployment**, choisir **Deploy from a br
 
 ## Version autonome
 
-`otmabinks_fitness_pro.html` contient les styles, les scripts, le programme et la photographie. Il peut être ouvert directement, sans dépendance réseau. Les sources séparées servent le site GitHub Pages.
+`otmabinks_fitness_pro.html` contient les styles, les scripts, le programme et la photographie. Il peut être ouvert directement. Les photos de démonstration des exercices sont chargées en ligne et nécessitent une connexion. Les sources séparées servent le site GitHub Pages.
 
 ## Vérification
 
@@ -41,3 +41,15 @@ Photographie de salle de sport : Unsplash, identifiant `photo-1534438327276-14e5
 Le bouton Réinitialiser est supprimé. La série commence à la première séance validée et est recalculée à partir de tout l’historique daté. Les séances validées ajoutent un jour ; le dimanche de repos ajoute un jour à une série active sans consommer de gel. Un gel protège la série mais n’ajoute pas de jour. Chaque jour d’entraînement manqué, après minuit local, consomme automatiquement un gel si une série est active. Après trois gels consommés dans le mois, le jour manqué suivant interrompt la série. Les jours manqués sans série active ne consomment pas de gel. Le budget revient à trois au début de chaque mois, sans cumul. Le record reste visible.
 
 L’application affiche les 28 derniers jours et conserve tout l’historique dans le stockage du navigateur et dans les exports. Les journées passées et futures sont consultables mais non modifiables depuis l’interface. Une journée en cours n’est jamais pénalisée avant minuit. Le changement de jour est détecté à la réouverture, au retour dans l’onglet et toutes les 30 secondes. Aucun serveur ou compte n’est nécessaire ; l’horloge locale et les données du navigateur font foi. Pour changer de navigateur ou d’appareil, utiliser Exporter / Importer.
+
+## Fiches de mouvement et futurs exercices
+
+Chaque nom d’exercice ouvre une fiche distincte de la case de validation : une ou deux images, des étapes en français, le volume prévu et les différences de matériel quand la démonstration utilise une autre machine. Le gainage utilise une seule photo de la position tenue ; le duo crunch/gainage montre les deux mouvements. Les 31 fiches couvrent tout le programme original et plusieurs ajouts possibles.
+
+Le bouton **Ajouter un exercice** permet de choisir une fiche de la bibliothèque ou de créer un mouvement personnel, avec un nom, des étapes et au moins une URL HTTPS de photo. Aucun exercice ajouté ne peut avoir une fiche vide. Les ajouts reviennent le même jour chaque semaine, à partir de leur date d’ajout, sans réécrire l’historique. Le dimanche reste une journée de repos. Un ajout au jour courant retire sa validation pour permettre de terminer le nouveau programme.
+
+Les ajouts, leurs fiches personnelles, leurs coches et les notes sont inclus dans la sauvegarde et l’export. Les identifiants des exercices ajoutés restent stables. Une erreur de stockage annule l’ajout plutôt que d’annoncer une sauvegarde inexistante. Les images externes peuvent devenir indisponibles ; une indication et un lien source s’affichent alors dans la fiche.
+
+Sources des démonstrations : [free-exercise-db](https://github.com/yuhonas/free-exercise-db), commit f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5, distribué sous [Unlicense](https://github.com/yuhonas/free-exercise-db/blob/main/LICENSE.md) ; boxe : [24 Hour Fitness — Boxing on the Go](https://www.24hourfitness.com/24life/fitness/2019/workout-boxing-on-the-go), médias intégrés depuis leur source et lien dans la fiche. Les explications sont des reformulations courtes adaptées au programme ; les variantes de matériel sont indiquées.
+
+Pour régénérer le fichier HTML autonome après une modification : `python3 scripts/build-standalone.py`.

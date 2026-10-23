@@ -1,20 +1,23 @@
 'use strict';
 const Fitness = (() => {
   const program = typeof module !== 'undefined' ? require('./program.js') : PROGRAM;
+  const guides = typeof module !== 'undefined' ? require('./guides.js') : GUIDES;
   const KEY='otmabinks-training-club-v2', LEGACY_KEY='otma_fit_tracker_v1';
   const dateKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
   function monday(date=new Date()){const d=new Date(date);d.setHours(12,0,0,0);d.setDate(d.getDate()-(d.getDay()+6)%7);return dateKey(d);}
   function offset(key,n){const d=new Date(`${key}T12:00:00`);d.setDate(d.getDate()+n);return dateKey(d);}
-  const empty=()=>({version:2,weeks:{},notes:''});
+  const empty=()=>({version:2,weeks:{},notes:'',extras:[]});
   const emptyWeek=()=>({checks:{},complete:{}});
   const object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
   function validDate(key){return /^\d{4}-\d{2}-\d{2}$/.test(key)&&!Number.isNaN(new Date(`${key}T12:00:00`).valueOf())&&dateKey(new Date(`${key}T12:00:00`))===key&&monday(new Date(`${key}T12:00:00`))===key;}
-  function normalizeWeek(data){
+  function normalizeWeek(data,extras=[]){
     if(!object(data)||!object(data.checks)||!object(data.complete))throw Error('Les données de suivi sont invalides.');
     const week=emptyWeek();
     for(const [key,value] of Object.entries(data.checks)){
       const match=/^([0-6]):(\d{1,2})$/.exec(key);
-      if(!match||!program[+match[1]].items[+match[2]]||typeof value!=='boolean')throw Error('Une case du suivi est invalide.');
+      const extra=/^([0-5]):x_([a-zA-Z0-9_-]+)$/.exec(key);
+      const known=match&&program[+match[1]].items[+match[2]] || extra&&extras.some(e=>e.day===+extra[1]&&e.id===extra[2]);
+      if(!known||typeof value!=='boolean')throw Error('Une case du suivi est invalide.');
       week.checks[key]=value;
     }
     for(const [key,value] of Object.entries(data.complete)){
@@ -29,18 +32,34 @@ const Fitness = (() => {
       if(!('checks' in data)&&!('complete' in data)&&!('notes' in data))throw Error('Ce fichier ne contient aucun suivi OTMABINKS.');
       if(data.notes!==undefined&&typeof data.notes!=='string')throw Error('Les notes sont invalides.');
       const notes=data.notes||'';if(notes.length>20000)throw Error('Les notes dépassent 20 000 caractères.');
-      return {version:2,weeks:{[current]:normalizeWeek({checks:data.checks??{},complete:data.complete??{}})},notes};
+      return {version:2,weeks:{[current]:normalizeWeek({checks:data.checks??{},complete:data.complete??{}})},notes,extras:[]};
     }
     if(data.version!==2||!object(data.weeks)||typeof data.notes!=='string'||data.notes.length>20000)throw Error('Version ou format de sauvegarde incompatible.');
+    const extras=validateExtras(data.extras||[]);
     const weeks={};
-    for(const [key,value] of Object.entries(data.weeks)){if(!validDate(key))throw Error('Une date de semaine est invalide.');weeks[key]=normalizeWeek(value);}
-    return {version:2,weeks,notes:data.notes};
+    for(const [key,value] of Object.entries(data.weeks)){if(!validDate(key))throw Error('Une date de semaine est invalide.');weeks[key]=normalizeWeek(value,extras);}
+    return {version:2,weeks,notes:data.notes,extras};
   }
-  function stats(week=emptyWeek()){
+  function stats(week=emptyWeek(),days=program){
     let done=0,total=0,completed=0;
-    program.forEach((d,i)=>{total+=d.items.length;done+=d.items.filter((_,j)=>week.checks[`${i}:${j}`]).length;if(d.items.length&&week.complete[i])completed++;});
+    days.forEach((d,i)=>{total+=d.items.length;done+=d.items.filter((_,j)=>week.checks[itemKey(d.items[j],i,j)]).length;if(d.items.length&&week.complete[i])completed++;});
     return {done,total,completed};
   }
+  function safePhoto(url){try{const u=new URL(url);return u.protocol==='https:'&&url.length<=2048&&!u.username&&!u.password;}catch{return false;}}
+  function validateGuide(g){
+    if(!object(g)||typeof g.name!=='string'||!g.name.trim()||g.name.length>120||typeof g.equipment!=='string'||g.equipment.length>160||!Array.isArray(g.steps)||!g.steps.length||g.steps.length>8||g.steps.some(t=>typeof t!=='string'||!t.trim()||t.length>800)||!Array.isArray(g.images)||g.images.length<1||g.images.length>2||g.images.some(u=>!safePhoto(u)))throw Error('Chaque exercice doit avoir un nom, une explication et une ou deux photos HTTPS.');
+    return {name:g.name,equipment:g.equipment,steps:g.steps,images:g.images,note:typeof g.note==='string'?g.note.slice(0,1000):'',source:typeof g.source==='string'&&safePhoto(g.source)?g.source:'',captions:g.images.map((_,i)=>`Position ${i+1}`)};
+  }
+  function validateExtras(extras){
+    if(!Array.isArray(extras)||extras.length>100)throw Error('Liste d’exercices ajoutés invalide.');const ids=new Set();
+    return extras.map(e=>{if(!object(e)||!Number.isInteger(e.day)||e.day<0||e.day>5||typeof e.id!=='string'||!/^[a-zA-Z0-9_-]{1,80}$/.test(e.id)||ids.has(e.id)||typeof e.from!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(e.from)||Number.isNaN(new Date(e.from+'T12:00:00').valueOf())||dateKey(new Date(e.from+'T12:00:00'))!==e.from||typeof e.sets!=='string'||!e.sets.trim()||e.sets.length>80)throw Error('Un exercice ajouté est invalide.');ids.add(e.id);
+      if(typeof e.guide==='string'){if(!guides.some(g=>g.id===e.guide))throw Error('Fiche inconnue.');return {id:e.id,day:e.day,from:e.from,sets:e.sets,guide:e.guide};}
+      return {id:e.id,day:e.day,from:e.from,sets:e.sets,guide:validateGuide(e.guide)};
+    });
+  }
+  function guideFor(item){return typeof item[3]==='object'?item[3]:guides.find(g=>item[3]?g.id===item[3]:g.name===item[0]);}
+  function itemKey(item,day,index){return `${day}:${item[4]||index}`;}
+  function plan(state,week){return program.map((d,i)=>({...d,items:[...d.items,...(state.extras||[]).filter(e=>e.day===i&&e.from<=offset(week,i)).map(e=>{const g=typeof e.guide==='string'?guides.find(g=>g.id===e.guide):e.guide;return [g.name,g.equipment,e.sets,e.guide,'x_'+e.id];})]}));}
   function streak(state,today=dateKey(new Date())){
     const completed=new Set();
     for(const [wk,w] of Object.entries(state.weeks))for(let i=0;i<6;i++)if(w.complete[i]&&offset(wk,i)<=today)completed.add(offset(wk,i));
@@ -57,7 +76,7 @@ const Fitness = (() => {
     }
     return {current,best,remaining:3-(used[today.slice(0,7)]||0),used,history,start,todayDone:completed.has(today)};
   }
-  return {program,KEY,LEGACY_KEY,dateKey,monday,offset,empty,emptyWeek,validate,stats,streak};
+  return {program,KEY,LEGACY_KEY,dateKey,monday,offset,empty,emptyWeek,validate,stats,streak,guides,guideFor,itemKey,plan,validateExtras,validateGuide};
 })();
 if(typeof module!=='undefined')module.exports=Fitness;
 if(typeof document!=='undefined'){
@@ -83,7 +102,7 @@ if(typeof document!=='undefined'){
   }
   function render(){
     const today=dateKey(new Date()), selected=offset(week,active), locked=selected!==today;
-    const d=program[active], w=currentWeek(), count=d.items.filter((_,i)=>w.checks[`${active}:${i}`]).length;
+    const displayed=Fitness.plan(state,week),d=displayed[active], w=currentWeek(), count=d.items.filter((item,i)=>w.checks[Fitness.itemKey(item,active,i)]).length;
     const fmt=new Intl.DateTimeFormat('fr-FR',{day:'numeric',month:'short'});
     $('week-label').textContent=`${fmt.format(new Date(`${week}T12:00:00`))} — ${fmt.format(new Date(`${offset(week,6)}T12:00:00`))}`;
     $('week-label').title=`Semaine du ${week}`;$('this-week').hidden=week===monday();
@@ -99,10 +118,11 @@ if(typeof document!=='undefined'){
     $('workout-tag').textContent=`${d.name.toUpperCase()} / ${d.tag}`;$('workout-title').textContent=d.title;$('workout-description').textContent=d.desc;$('workout-duration').textContent=d.time;
     $('exercises').replaceChildren();
     d.items.forEach((exercise,i)=>{
-      const checked=!!w.checks[`${active}:${i}`],label=el('label',undefined,`exercise${checked?' done':''}`),info=el('span',undefined,'exercise-info'),input=el('input');
-      info.append(el('span',exercise[0],'exercise-name'),el('span',exercise[1],'exercise-sub'));
+      const key=Fitness.itemKey(exercise,active,i),checked=!!w.checks[key],label=el('div',undefined,`exercise${checked?' done':''}`),info=el('button',undefined,'exercise-info exercise-open'),input=el('input');
+      info.type='button';info.setAttribute('aria-label',`Voir le mouvement : ${exercise[0]}`);info.onclick=()=>openGuide(exercise);
+      info.append(el('span',exercise[0],'exercise-name'),el('span',exercise[1]+' · Voir le mouvement ↗','exercise-sub'));
       input.type='checkbox';input.checked=checked;input.disabled=locked;input.setAttribute('aria-label',`${exercise[0]} terminé`);
-      input.onchange=()=>{if(offset(week,active)!==dateKey(new Date())){render();return;}const record=writableWeek();record.checks[`${active}:${i}`]=input.checked;if(!input.checked)record.complete[active]=false;save();render();$('exercises').querySelectorAll('input')[i].focus({preventScroll:true});};
+      input.onchange=()=>{if(offset(week,active)!==dateKey(new Date())){render();return;}const record=writableWeek();record.checks[key]=input.checked;if(!input.checked)record.complete[active]=false;save();render();$('exercises').querySelectorAll('input')[i].focus({preventScroll:true});};
       label.append(el('span',String(i+1).padStart(2,'0'),'exercise-index'),info,el('span',exercise[2],'exercise-sets'),input);$('exercises').append(label);
     });
     if(!d.items.length){const rest=el('div',undefined,'rest-state');rest.append(el('span','↗','rest-icon'),el('strong','RÉCUPÉRER,\nC’EST AVANCER.'),el('p','Une marche douce, du repos et du temps pour toi. Aujourd’hui, tu recharges.'));$('exercises').append(rest);}
@@ -112,12 +132,29 @@ if(typeof document!=='undefined'){
     $('complete-session').textContent=w.complete[active]?(d.items.length?'Séance terminée ✓':'Repos validé ✓'):(d.items.length?'Terminer la séance ↗':'Valider ma récupération ↗');
     $('complete-session').setAttribute('aria-pressed',String(!!w.complete[active]));$('complete-session').disabled=locked;
     renderStreak(today);
-    const total=stats(w);$('completed-count').textContent=total.completed;
+    const total=stats(w,displayed);$('completed-count').textContent=total.completed;
     $('week-message').textContent=total.completed===6?'Semaine complète. Beau travail.':total.completed?'Tu avances. Garde le rythme.':'Chaque séance fait la différence.';
     $('week-marks').replaceChildren();program.forEach((day,i)=>{if(!day.items.length)return;const mark=el('span',undefined,w.complete[i]?'done':'');mark.title=`${day.name} : ${w.complete[i]?'terminé':'à faire'}`;$('week-marks').append(mark);});
     $('week-marks').setAttribute('aria-label',`${total.completed} séances terminées sur 6`);
+    $('add-exercise').disabled=selected<today||active===6||(state.extras||[]).length>=100;
     if(blocked)$('save-state').textContent='Sauvegarde indisponible. Pense à exporter.';
   }
+  function openGuide(item){
+    const g=Fitness.guideFor(item);if(!g){message('Fiche introuvable pour ce mouvement.');return;}
+    $('guide-title').textContent=item[0];$('guide-meta').textContent=item[1]+' · '+item[2];$('guide-photos').replaceChildren();
+    g.images.forEach((src,i)=>{const figure=el('figure'),img=el('img');img.src=src;img.alt=`${g.name} — ${g.captions?.[i]||`position ${i+1}`}`;img.referrerPolicy='no-referrer';img.decoding='async';img.onerror=()=>{img.hidden=true;figure.prepend(el('p','Photo indisponible. Vérifie ta connexion ou consulte la source.','photo-error'));};figure.append(img,el('figcaption',g.captions?.[i]||`Position ${i+1}`));$('guide-photos').append(figure);});
+    $('guide-steps').replaceChildren(...g.steps.map(step=>el('li',step)));$('guide-note').textContent=g.note||'Reste sur une amplitude confortable et un mouvement contrôlé.';
+    $('guide-source').hidden=!g.source;$('guide-source').href=g.source||'#';$('exercise-guide').showModal();
+  }
+  $('close-guide').onclick=()=>$('exercise-guide').close();
+  const choose=$('guide-choice');Fitness.guides.forEach(g=>{const option=el('option',g.name);option.value=g.id;choose.append(option);});const customOption=el('option','Autre exercice : créer sa fiche');customOption.value='custom';choose.append(customOption);
+  function selection(){const custom=choose.value==='custom';$('custom-guide-fields').hidden=!custom;for(const input of $('custom-guide-fields').querySelectorAll('input,textarea')){input.disabled=!custom;input.required=custom&&input.hasAttribute('data-required');}const g=Fitness.guides.find(g=>g.id===choose.value);$('chosen-guide-info').textContent=custom?'Pour ce nouveau mouvement, ajoute une explication et au moins une photo.':g?`${g.equipment} · ${g.images.length} photo(s) et une explication incluses.`:'';$('preview-guide').hidden=!g;}
+  choose.onchange=selection;
+  $('preview-guide').onclick=()=>{const g=Fitness.guides.find(g=>g.id===choose.value);if(g)openGuide([g.name,g.equipment,$('extra-sets').value||'À définir',g.id]);};
+  let addDate,addDay;
+  $('add-exercise').onclick=()=>{addDate=offset(week,active);addDay=active;if(addDate<dateKey(new Date())||active===6)return;$('add-form').reset();choose.value=Fitness.guides[0].id;$('add-day-label').textContent=`${program[active].name}, à partir du ${new Intl.DateTimeFormat('fr-FR',{day:'numeric',month:'long'}).format(new Date(addDate+'T12:00:00'))}`;selection();$('add-error').textContent='';$('add-dialog').showModal();};
+  $('close-add').onclick=$('cancel-add').onclick=()=>$('add-dialog').close();
+  $('add-form').onsubmit=e=>{e.preventDefault();try{if(addDate<dateKey(new Date()))throw Error('Le jour a changé. Rouvre l’ajout sur une journée à venir.');let guide=choose.value;if(guide==='custom')guide=Fitness.validateGuide({name:$('custom-name').value.trim(),equipment:$('custom-equipment').value.trim(),steps:$('custom-steps').value.split('\n').map(s=>s.trim()).filter(Boolean),images:[$('custom-photo-1').value.trim(),$('custom-photo-2').value.trim()].filter(Boolean),note:'Fiche personnelle ajoutée par toi.'});const extra={id:crypto.randomUUID(),day:addDay,from:addDate,sets:$('extra-sets').value.trim(),guide};const before=JSON.parse(JSON.stringify(state));state.extras=Fitness.validateExtras([...(state.extras||[]),extra]);const targetWeek=monday(new Date(addDate+'T12:00:00'));if(state.weeks[targetWeek])state.weeks[targetWeek].complete[addDay]=false;if(!save()){state=before;throw Error('Impossible d’enregistrer cet ajout. Exporte ton suivi ou libère de l’espace.');}$('add-dialog').close();render();message('Exercice ajouté avec sa fiche. Il reviendra chaque semaine à partir de cette date.');}catch(error){$('add-error').textContent=error.message;}};
   function renderStreak(today){
     const result=Fitness.streak(state,today);
     $('streak-count').textContent=result.current;
@@ -133,7 +170,7 @@ if(typeof document!=='undefined'){
   function refreshNotes(){$('notes').value=state.notes;$('note-count').textContent=`${state.notes.length.toLocaleString('fr-FR')} / 20 000`;}
   $('notes').oninput=()=>{state.notes=$('notes').value;$('note-count').textContent=`${state.notes.length.toLocaleString('fr-FR')} / 20 000`;save();};
   $('prev-week').onclick=()=>{week=offset(week,-7);render();};$('next-week').onclick=()=>{week=offset(week,7);render();};$('this-week').onclick=()=>{week=monday();render();};
-  $('complete-session').onclick=()=>{if(offset(week,active)!==dateKey(new Date())){render();return;}const w=writableWeek();w.complete[active]=!w.complete[active];if(w.complete[active])program[active].items.forEach((_,i)=>w.checks[`${active}:${i}`]=true);save();render();if(w.complete[active])message(program[active].items.length?'Séance validée. Un pas de plus.':'Récupération validée.');};
+  $('complete-session').onclick=()=>{if(offset(week,active)!==dateKey(new Date())){render();return;}const w=writableWeek();w.complete[active]=!w.complete[active];if(w.complete[active])Fitness.plan(state,week)[active].items.forEach((item,i)=>w.checks[Fitness.itemKey(item,active,i)]=true);save();render();if(w.complete[active])message(program[active].items.length?'Séance validée. Un pas de plus.':'Récupération validée.');};
   $('export').onclick=()=>{const blob=new Blob([JSON.stringify({...state,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),link=el('a');link.href=url;link.download=`otmabinks-suivi-${dateKey(new Date())}.json`;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);message('Ton export est prêt. Garde-le pour retrouver ton suivi.');};
   $('import').onclick=()=>$('import-file').click();
   $('import-file').onchange=async()=>{

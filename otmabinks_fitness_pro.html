@@ -6,6 +6,8 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 .streak-section{display:grid;grid-template-columns:1.1fr 1fr 1.1fr;gap:36px;padding:42px 0;border-bottom:1px solid var(--line)}.streak-section h2{font-size:29px;letter-spacing:-1px}.streak-number{display:flex;align-items:center;gap:20px;margin:20px 0 12px}.streak-number strong{font-family:var(--heading);font-size:88px;line-height:1;color:var(--orange)}.streak-number span{font-size:12px}.streak-number small{display:block;color:var(--muted);margin-top:7px}.streak-main>p:last-child{font-size:12px;color:var(--muted);margin-bottom:0}.freeze-panel{border-inline:1px solid var(--line);padding:0 28px}.freezes{display:flex;gap:10px;margin:22px 0 17px}.freezes span{height:40px;width:40px;display:grid;place-items:center;border:1px solid #c9ddd9;color:#286c75;font-size:23px;background:#e5eeeb}.freezes .spent{background:none;border-color:var(--line);color:#969e94}.freeze-panel>strong{font-size:13px}.freeze-panel>p:not(.eyebrow){font-size:10px;color:var(--muted);text-transform:capitalize;margin-top:6px}.streak-history{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.history-day{aspect-ratio:1;display:grid;place-items:center;background:var(--soft);font-size:10px;color:var(--muted);border:1px solid transparent}.history-day.done{background:var(--orange);color:white}.history-day.frozen{background:#dbecea;color:#205d67;border-color:#7ba3aa}.history-day.frozen:after{content:'❄';font-size:9px}.history-day.rest{border-color:#9ca888;background:transparent}.history-day.broken,.history-day.missed{background:#eaded8;color:#703e31;text-decoration:line-through}.history-day.pending{border:1px dashed var(--orange)}.history-legend{display:flex;flex-wrap:wrap;gap:12px;font-size:8px;margin-top:12px;color:var(--muted)}.history-legend span:first-child{color:var(--orange)}.history-legend span:nth-child(2){color:#286c75}.date-hint{font-size:10px;color:var(--muted);margin-top:14px}.exercise:has(input:disabled){cursor:default}.exercise input:disabled{cursor:default;opacity:.65}@media(max-width:800px){.streak-section{gap:22px;grid-template-columns:1fr 1fr}.freeze-panel{border-right:0;padding-right:0}.history-panel{grid-column:1/-1}.streak-history{grid-template-columns:repeat(14,1fr)}}@media(max-width:560px){.streak-section{padding:30px 0;gap:24px 18px}.streak-section h2{font-size:24px}.streak-section .eyebrow{font-size:8px;letter-spacing:1px}.streak-number{gap:10px}.streak-number strong{font-size:68px}.streak-number span{font-size:9px}.streak-number small{font-size:8px}.streak-main>p:last-child{font-size:10px}.freeze-panel{padding-left:16px}.freezes{gap:6px}.freezes span{height:30px;width:30px;font-size:18px}.freeze-panel>strong{font-size:10px}.streak-history{grid-template-columns:repeat(7,1fr)}.history-day{aspect-ratio:1.3}}
+
+.exercise-open{border:0;background:none;text-align:left;padding:8px 0;color:inherit;cursor:pointer}.exercise-open:hover .exercise-name{text-decoration:underline;text-underline-offset:4px}.exercise:has(input:disabled){cursor:default}.exercise-info.exercise-open{flex:1}.add-exercise{margin-top:20px;font-size:11px}.guide-dialog{max-width:820px;max-height:90vh;overflow:auto}.modal-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}.modal-heading .icon-button{flex-shrink:0;font-size:24px}.guide-dialog h2{font-size:30px;margin-top:0}.guide-dialog .muted{font-size:12px}.guide-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0 28px}.guide-photos figure{margin:0;min-width:0;background:#fff}.guide-photos img{width:100%;height:260px;object-fit:contain;display:block}.guide-photos figcaption{font-size:10px;padding:10px 14px;background:var(--soft);text-transform:uppercase;letter-spacing:1px}.guide-dialog h3{font-size:16px}.guide-dialog ol{padding-left:22px;line-height:1.7;font-size:13px}.guide-dialog li{padding:5px 0 9px 5px}.guide-note{padding:15px;background:var(--soft);font-size:11px!important}.guide-dialog a{font-size:10px;color:var(--muted)}.photo-error{padding:20px;min-height:160px;font-size:12px}.add-dialog{max-width:580px;max-height:90vh;overflow:auto}.add-dialog label{font-size:12px;display:block;margin:18px 0 8px}.add-dialog select,.add-dialog input,.add-dialog textarea{border:1px solid var(--line);background:white;padding:12px;width:100%;color:var(--ink);border-radius:2px}.add-dialog textarea{min-height:110px}.add-dialog .muted{font-size:11px}.add-dialog h2{margin-top:0}#add-error{color:#a13521}#custom-guide-fields{border-top:1px solid var(--line);margin-top:18px}@media(max-width:560px){.guide-dialog{padding:22px;max-height:94vh}.guide-dialog h2{font-size:25px}.guide-photos{gap:8px}.guide-photos img{height:185px}.guide-photos figcaption{font-size:8px;padding:9px}.guide-dialog ol{font-size:12px}.exercise-open .exercise-sub{font-size:8px}.add-dialog{padding:22px}.add-dialog h2{font-size:25px}}
 </style></head><body>
 <a class="skip" href="#programme">Aller au programme</a>
 <header class="site-header page-width"><a href="#" class="brand" aria-label="OTMABINKS Training Club, accueil"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5 29 17 8h9L14 29zm14 0L31 8h5L24 29z" fill="currentColor"/></svg><span>OTMABINKS<small>TRAINING CLUB</small></span></a><nav aria-label="Navigation principale"><a class="nav-active" href="#programme">Mon programme</a><a href="#journal">Mon carnet</a></nav><a class="avatar" href="#journal" aria-label="Mon espace personnel">O.</a></header>
@@ -13,11 +15,12 @@
 <div class="program-strip page-width"><span><b>06</b> séances / semaine</span><span><b>04</b> haut du corps</span><span><b>01</b> jambes + abdos</span><span><b>01</b> cardio</span><span class="strip-end">UN PROGRAMME. TON RYTHME.</span></div>
 <section id="regularite" class="streak-section page-width" aria-labelledby="streak-title"><div class="streak-main"><p class="eyebrow orange">NE BRISE PAS LE RYTHME</p><h2 id="streak-title">Ta série continue.</h2><div class="streak-number"><strong id="streak-count">0</strong><span>jours de régularité<br><small id="streak-best">Record : 0 jours</small></span></div><p id="streak-message"></p></div><div class="freeze-panel"><p class="eyebrow quiet">TES CHANCES DU MOIS</p><div id="freezes" class="freezes" aria-hidden="true"></div><strong id="freeze-count">3 / 3 gels disponibles</strong><p id="freeze-month"></p><details><summary>Comment ça marche ? <span>+</span></summary><p>Une séance validée prolonge ta série. Un jour d’entraînement manqué utilise automatiquement un gel, dès le lendemain. Le gel protège ta série sans ajouter de jour. Après trois gels dans le même mois, le prochain jour manqué casse la série. Trois nouveaux gels arrivent le 1er de chaque mois, sans cumul. Le dimanche compte comme repos dans une série active, sans gel. Le suivi démarre à ta première séance validée.</p></details></div><div class="history-panel"><p class="eyebrow quiet">TES 28 DERNIERS JOURS</p><div id="streak-history" class="streak-history"></div><p class="history-legend"><span>● Séance</span><span>❄ Gel</span><span>○ Repos</span><span>× Manqué</span></p></div></section>
 <section id="programme" class="program page-width" aria-labelledby="program-title"><div class="section-top"><div><p class="eyebrow quiet">LE PLAN DE MATCH</p><h2 id="program-title">Ta semaine.</h2></div><div class="week-switch"><button id="prev-week" class="icon-button" aria-label="Semaine précédente">←</button><div><span id="week-label"></span><button id="this-week" class="text-button" hidden>Cette semaine</button></div><button id="next-week" class="icon-button" aria-label="Semaine suivante">→</button></div></div><nav class="days" id="days" aria-label="Choisir le jour d’entraînement"></nav>
-<div class="training-layout"><section class="workout" aria-labelledby="workout-title"><div class="workout-heading"><div><p class="eyebrow orange" id="workout-tag"></p><h3 id="workout-title"></h3><p id="workout-description" class="muted"></p></div><span class="duration" id="workout-duration"></span></div><div class="list-heading" aria-hidden="true"><span>LES MOUVEMENTS</span><span>SÉRIES × RÉPÉTITIONS</span></div><div id="exercises"></div><div id="session-progress" class="session-progress"><div><span id="session-count"></span><span id="session-percent"></span></div><progress id="exercise-progress" max="100" value="0" aria-label="Progression de la séance"></progress></div><div class="session-actions"><button class="button dark" id="complete-session">Terminer la séance <span aria-hidden="true">↗</span></button></div><p id="session-date-hint" class="date-hint"></p></section>
+<div class="training-layout"><section class="workout" aria-labelledby="workout-title"><div class="workout-heading"><div><p class="eyebrow orange" id="workout-tag"></p><h3 id="workout-title"></h3><p id="workout-description" class="muted"></p></div><span class="duration" id="workout-duration"></span></div><div class="list-heading" aria-hidden="true"><span>LES MOUVEMENTS</span><span>SÉRIES × RÉPÉTITIONS</span></div><div id="exercises"></div><button id="add-exercise" class="button outline add-exercise">+ Ajouter un exercice</button><div id="session-progress" class="session-progress"><div><span id="session-count"></span><span id="session-percent"></span></div><progress id="exercise-progress" max="100" value="0" aria-label="Progression de la séance"></progress></div><div class="session-actions"><button class="button dark" id="complete-session">Terminer la séance <span aria-hidden="true">↗</span></button></div><p id="session-date-hint" class="date-hint"></p></section>
 <aside class="sidebar"><section class="weekly-card"><div class="card-heading"><p class="eyebrow quiet">LA RÉGULARITÉ COMPTE</p><span class="mini-symbol" aria-hidden="true">↗</span></div><div class="weekly-number"><strong id="completed-count">0</strong><span>/ 6</span></div><p id="week-message">Chaque séance fait la différence.</p><div id="week-marks" class="week-marks" aria-label="Séances terminées"></div><span class="caption">SÉANCES TERMINÉES CETTE SEMAINE</span></section><section class="prep-card"><p class="eyebrow quiet">AVANT DE COMMENCER</p><div class="prep-row"><span>Échauffement</span><strong>5 min</strong></div><div class="prep-row"><span>Repos entre séries</span><strong>60–120 s</strong></div><div class="prep-row"><span>Répétitions en réserve</span><strong>1–3</strong></div><details><summary>Les repères du programme <span aria-hidden="true">+</span></summary><p>Commence avec 2 séries par mouvement si la reprise est difficile. Vérifie la stabilité des attaches et la trajectoire des câbles. Les mouvements à la poulie restent à adapter à ta station réelle.</p></details></section><div class="club-note"><span aria-hidden="true">↗</span><p>PAS BESOIN<br>D’ÊTRE PARFAIT.<br><span>JUSTE PRÉSENT.</span></p></div></aside></div></section>
 <section class="journal page-width" id="journal" aria-labelledby="journal-title"><div class="journal-intro"><p class="eyebrow quiet">AU-DELÀ DES RÉPÉTITIONS</p><h2 id="journal-title">Ton carnet.</h2><p class="muted">Les charges qui montent.<br>Les sensations qui changent.<br>Tout ce que tu veux retenir.</p><span class="saved-status" id="save-state">Enregistré sur cet appareil</span></div><div class="journal-paper"><label for="notes">NOTES PERSONNELLES <span aria-hidden="true">↗</span></label><textarea id="notes" maxlength="20000" placeholder="Aujourd’hui, j’ai…&#10;&#10;Charges, sensations, progression, ajustements."></textarea><div class="journal-bottom"><span>Tes notes restent dans ton navigateur.</span><span id="note-count">0 / 20 000</span></div></div></section>
 <section class="data-section page-width"><div><h3>Ton suivi, partout avec toi.</h3><p>Exporte tes données pour les garder ou les retrouver sur un autre appareil.</p></div><div class="data-actions"><button id="export" class="button outline">Exporter <span aria-hidden="true">↓</span></button><button id="import" class="button outline">Importer <span aria-hidden="true">↑</span></button><input id="import-file" type="file" accept="application/json,.json" hidden></div></section></main>
-<footer class="page-width"><a href="#" class="footer-brand">OTMABINKS<span>TRAINING CLUB</span></a><p>Ton programme personnel. Un jour à la fois.</p><a href="#programme">RETOUR AU PROGRAMME ↑</a></footer><div id="status" class="toast" role="status" aria-live="polite" hidden></div><dialog id="confirm-dialog"><form method="dialog"><p class="eyebrow orange">TON SUIVI</p><h2 id="confirm-title"></h2><p id="confirm-message"></p><div class="dialog-actions"><button value="cancel" class="button outline">Annuler</button><button value="confirm" class="button dark" id="confirm-action">Confirmer</button></div></form></dialog><script>'use strict';
+<footer class="page-width"><a href="#" class="footer-brand">OTMABINKS<span>TRAINING CLUB</span></a><p>Ton programme personnel. Un jour à la fois.</p><a href="#programme">RETOUR AU PROGRAMME ↑</a></footer><div id="status" class="toast" role="status" aria-live="polite" hidden></div><dialog id="confirm-dialog"><form method="dialog"><p class="eyebrow orange">TON SUIVI</p><h2 id="confirm-title"></h2><p id="confirm-message"></p><div class="dialog-actions"><button value="cancel" class="button outline">Annuler</button><button value="confirm" class="button dark" id="confirm-action">Confirmer</button></div></form></dialog><dialog id="exercise-guide" class="guide-dialog" aria-labelledby="guide-title"><div class="modal-heading"><div><p class="eyebrow orange">LE BON MOUVEMENT</p><h2 id="guide-title"></h2><p id="guide-meta" class="muted"></p></div><button type="button" id="close-guide" class="icon-button" aria-label="Fermer la fiche">×</button></div><div id="guide-photos" class="guide-photos"></div><h3>Comment faire</h3><ol id="guide-steps"></ol><p id="guide-note" class="guide-note"></p><a id="guide-source" target="_blank" rel="noopener noreferrer">Voir la source des démonstrations ↗</a></dialog>
+<dialog id="add-dialog" class="add-dialog" aria-labelledby="add-title"><form id="add-form"><div class="modal-heading"><div><p class="eyebrow orange">FAIS ÉVOLUER TON PROGRAMME</p><h2 id="add-title">Ajouter un exercice</h2></div><button type="button" id="close-add" class="icon-button" aria-label="Fermer l’ajout">×</button></div><p id="add-day-label" class="muted"></p><label for="guide-choice">Choisis un mouvement</label><select id="guide-choice" required></select><p id="chosen-guide-info" class="muted"></p><button id="preview-guide" class="text-button" type="button">Voir les photos et l’explication ↗</button><div id="custom-guide-fields" hidden><label for="custom-name">Nom de l’exercice</label><input id="custom-name" maxlength="120" data-required><label for="custom-equipment">Matériel</label><input id="custom-equipment" maxlength="160"><label for="custom-steps">Explication (une étape par ligne)</label><textarea id="custom-steps" maxlength="6400" data-required></textarea><label for="custom-photo-1">Lien HTTPS de la première photo</label><input id="custom-photo-1" type="url" placeholder="https://…/photo.jpg" maxlength="2048" data-required><label for="custom-photo-2">Deuxième photo (facultatif)</label><input id="custom-photo-2" type="url" placeholder="https://…/photo.jpg" maxlength="2048"><p class="muted">Utilise des liens directs vers des photos que tu as le droit d’utiliser.</p></div><label for="extra-sets">Séries × répétitions, ou durée</label><input id="extra-sets" maxlength="80" placeholder="Ex. 3 × 10 ou 10 min" required><p class="muted">Ajouté à ce jour chaque semaine à partir de la date affichée. Les séances passées restent intactes.</p><p id="add-error" role="alert"></p><div class="dialog-actions"><button id="cancel-add" type="button" class="button outline">Annuler</button><button type="submit" class="button dark">Ajouter au programme</button></div></form></dialog><script>'use strict';
 const PROGRAM = [
   {
     "short": "Lun",
@@ -242,22 +245,648 @@ const PROGRAM = [
 if (typeof module !== 'undefined') module.exports = PROGRAM;
 
 'use strict';
+const GUIDES = [
+  {
+    "id": "g0",
+    "name": "Chest press assis",
+    "equipment": "Machine / pectoraux",
+    "steps": [
+      "Règle le siège pour avoir les poignées à hauteur de poitrine, dos contre le dossier.",
+      "Pousse les poignées devant toi en soufflant, sans décoller le dos.",
+      "Reviens lentement, épaules basses et poignets alignés."
+    ],
+    "note": "La photo montre une machine de chest press : les réglages et les bras peuvent différer de ta MARCY.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Leverage_Chest_Press/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Leverage_Chest_Press/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Leverage_Chest_Press"
+  },
+  {
+    "id": "g1",
+    "name": "Papillon / pec fly",
+    "equipment": "Machine / pectoraux",
+    "steps": [
+      "Assieds-toi dos au dossier, bras placés sur les appuis prévus.",
+      "Rapproche les bras devant la poitrine sans hausser les épaules.",
+      "Rouvre lentement dans une amplitude confortable."
+    ],
+    "note": "À utiliser seulement si ta station possède la fonction papillon ; respecte ses appuis et sa trajectoire.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Butterfly/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Butterfly/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Butterfly"
+  },
+  {
+    "id": "g2",
+    "name": "Développé épaules",
+    "equipment": "Haltères / épaules",
+    "steps": [
+      "Assieds-toi sur un banc avec dossier, haltères à hauteur des épaules.",
+      "Pousse les haltères au-dessus de la tête en gardant le ventre engagé.",
+      "Redescends lentement sans cambrer pour finir la répétition."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dumbbell_Shoulder_Press/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dumbbell_Shoulder_Press/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dumbbell_Shoulder_Press"
+  },
+  {
+    "id": "g3",
+    "name": "Élévations latérales",
+    "equipment": "Poulie basse / épaules",
+    "steps": [
+      "Place-toi de côté à la poulie basse, poignée dans la main opposée, coude légèrement fléchi.",
+      "Élève le bras sur le côté jusqu’à hauteur d’épaule, sans élan.",
+      "Redescends lentement puis change de bras."
+    ],
+    "note": "Le câble doit circuler librement sur ta station. N’improvise pas de renvoi de câble.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Low-Pulley_Deltoid_Raise/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Low-Pulley_Deltoid_Raise/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Low-Pulley_Deltoid_Raise"
+  },
+  {
+    "id": "g4",
+    "name": "Extension triceps",
+    "equipment": "Poulie haute / triceps",
+    "steps": [
+      "Prends la barre en pronation, coudes près des côtes, buste stable.",
+      "Déplie les coudes pour abaisser la barre en soufflant.",
+      "Remonte les avant-bras lentement sans avancer les coudes."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Pushdown/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Pushdown/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Pushdown"
+  },
+  {
+    "id": "g5",
+    "name": "Tirage vertical",
+    "equipment": "Poulie haute / dos",
+    "steps": [
+      "Assieds-toi avec les cuisses maintenues si un appui est prévu, poitrine haute.",
+      "Tire la barre vers le haut de la poitrine en amenant les coudes vers le bas.",
+      "Laisse les bras remonter lentement sans te faire soulever."
+    ],
+    "note": "Tire devant la tête, pas derrière la nuque.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Wide-Grip_Lat_Pulldown/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Wide-Grip_Lat_Pulldown/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Wide-Grip_Lat_Pulldown"
+  },
+  {
+    "id": "g6",
+    "name": "Rowing assis",
+    "equipment": "Poulie basse / dos",
+    "steps": [
+      "Assieds-toi avec des appuis stables, genoux légèrement fléchis et dos neutre.",
+      "Tire la poignée vers le bas des côtes en gardant le buste stable.",
+      "Retends les bras lentement sans arrondir le dos."
+    ],
+    "note": "La photo utilise une poignée en V. Ton programme prévoit une barre : conserve une prise confortable et des appuis prévus pour ta station.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Seated_Cable_Rows/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Seated_Cable_Rows/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Seated_Cable_Rows"
+  },
+  {
+    "id": "g7",
+    "name": "Oiseau / reverse fly",
+    "equipment": "Haltères / arrière des épaules",
+    "steps": [
+      "Assieds-toi, penche le buste depuis les hanches en gardant le dos neutre.",
+      "Écarte les bras sur les côtés, coudes légèrement fléchis.",
+      "Redescends avec contrôle, sans balancer le buste."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Seated_Bent-Over_Rear_Delt_Raise/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Seated_Bent-Over_Rear_Delt_Raise/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Seated_Bent-Over_Rear_Delt_Raise"
+  },
+  {
+    "id": "g8",
+    "name": "Curl biceps",
+    "equipment": "Poulie basse / biceps",
+    "steps": [
+      "Tiens la barre paumes vers le haut, coudes proches du corps.",
+      "Fléchis les coudes pour monter la barre, sans te pencher en arrière.",
+      "Redescends lentement en gardant les épaules immobiles."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl"
+  },
+  {
+    "id": "g9",
+    "name": "Curl marteau",
+    "equipment": "Haltères / biceps",
+    "steps": [
+      "Debout, tiens les haltères le long du corps, paumes face à face.",
+      "Monte les haltères en gardant les coudes près des côtes.",
+      "Redescends lentement, poignets droits et sans élan."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Hammer_Curls/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Hammer_Curls/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Hammer_Curls"
+  },
+  {
+    "id": "g10",
+    "name": "Course facile",
+    "equipment": "Tapis ou extérieur / cardio",
+    "steps": [
+      "Démarre par une marche puis augmente progressivement vers un footing facile.",
+      "Garde le regard devant toi, les épaules relâchées et une foulée naturelle.",
+      "Choisis une allure qui te permet encore de parler, puis ralentis progressivement."
+    ],
+    "note": "Sur tapis, utilise le dispositif d’arrêt de sécurité et suis les consignes de la machine.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Jogging_Treadmill/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Jogging_Treadmill/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Jogging_Treadmill"
+  },
+  {
+    "id": "g11",
+    "name": "Retour au calme",
+    "equipment": "Marche douce / récupération",
+    "steps": [
+      "Réduis progressivement l’allure pour passer à une marche facile.",
+      "Laisse les bras accompagner la marche et relâche les épaules.",
+      "Continue doucement pendant la durée prévue avant de t’arrêter."
+    ],
+    "note": "La démonstration montre la marche sur tapis ; une marche douce au sol convient aussi.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Walking_Treadmill/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Walking_Treadmill/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Walking_Treadmill"
+  },
+  {
+    "id": "g12",
+    "name": "Pompes",
+    "equipment": "Poids du corps / pectoraux",
+    "steps": [
+      "Place les mains un peu plus larges que les épaules et aligne tête, bassin et talons.",
+      "Plie les coudes pour descendre la poitrine, sans laisser tomber le bassin.",
+      "Repousse le sol en soufflant. Utilise un support surélevé si nécessaire."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Pushups/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Pushups/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Pushups"
+  },
+  {
+    "id": "g13",
+    "name": "Élévations frontales",
+    "equipment": "Poulie basse / épaules",
+    "steps": [
+      "Tiens la barre devant les cuisses, bras légèrement fléchis et buste stable.",
+      "Monte les bras devant toi jusqu’à environ la hauteur des épaules.",
+      "Redescends lentement sans basculer en arrière."
+    ],
+    "note": "La photo montre une poignée à un bras. Ton programme utilise une barre : réalise le même mouvement devant toi seulement si le câble circule sans gêne.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Front_Cable_Raise/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Front_Cable_Raise/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Front_Cable_Raise"
+  },
+  {
+    "id": "g14",
+    "name": "Extension triceps au-dessus de la tête",
+    "equipment": "Haltère / triceps",
+    "steps": [
+      "Tiens un haltère à deux mains au-dessus de la tête, ventre engagé.",
+      "Plie les coudes pour descendre l’haltère derrière la tête sans bouger les bras supérieurs.",
+      "Retends les coudes en soufflant, sans cambrer."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Dumbbell_Triceps_Extension/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Dumbbell_Triceps_Extension/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Dumbbell_Triceps_Extension"
+  },
+  {
+    "id": "g15",
+    "name": "Curl unilatéral",
+    "equipment": "Poulie basse / biceps",
+    "steps": [
+      "Prends la poignée paume vers le haut, coude près du corps.",
+      "Fléchis le coude sans avancer l’épaule ni tourner le buste.",
+      "Redescends lentement puis fais l’autre côté."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_One-Arm_Cable_Curl/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_One-Arm_Cable_Curl/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_One-Arm_Cable_Curl"
+  },
+  {
+    "id": "g16",
+    "name": "Curl inversé",
+    "equipment": "Poulie basse / avant-bras",
+    "steps": [
+      "Tiens la barre paumes vers le bas, poignets droits et coudes près du corps.",
+      "Fléchis les coudes sans balancer le buste.",
+      "Redescends lentement avec une charge qui permet de garder les poignets stables."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Reverse_Cable_Curl/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Reverse_Cable_Curl/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Reverse_Cable_Curl"
+  },
+  {
+    "id": "g17",
+    "name": "Leg extension",
+    "equipment": "Machine / quadriceps",
+    "steps": [
+      "Règle le siège et le rouleau selon la notice : rouleau au bas des tibias, juste au-dessus des chevilles.",
+      "Tends les jambes en contractant les cuisses, bassin et dos stables.",
+      "Replie les genoux lentement sans laisser retomber la charge."
+    ],
+    "note": "La machine illustrée est différente du module MARCY : utilise les réglages prévus par ton modèle.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Leg_Extensions/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Leg_Extensions/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Leg_Extensions"
+  },
+  {
+    "id": "g18",
+    "name": "Squats",
+    "equipment": "Poids du corps / jambes",
+    "steps": [
+      "Debout, pieds environ à largeur d’épaules, appuis bien répartis.",
+      "Plie hanches et genoux pour descendre à une profondeur confortable ; les genoux suivent les pieds.",
+      "Pousse dans le sol pour te redresser sans décoller les talons."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Bodyweight_Squat/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Bodyweight_Squat/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Bodyweight_Squat"
+  },
+  {
+    "id": "g19",
+    "name": "Pont fessier",
+    "equipment": "Au sol / fessiers",
+    "steps": [
+      "Allonge-toi sur le dos, genoux fléchis et pieds posés au sol.",
+      "Pousse dans les talons pour lever le bassin jusqu’à aligner épaules, hanches et genoux.",
+      "Serre les fessiers puis repose lentement le bassin sans creuser le dos."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Butt_Lift_Bridge/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Butt_Lift_Bridge/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Butt_Lift_Bridge"
+  },
+  {
+    "id": "g20",
+    "name": "Leg curl glissé",
+    "equipment": "Serviette / ischio-jambiers",
+    "steps": [
+      "Allonge-toi sur le dos, talon sur une serviette qui glisse sur une surface dégagée.",
+      "Ramène lentement le talon vers les fesses en pliant le genou.",
+      "Fais glisser le pied vers l’avant avec contrôle, puis change de côté."
+    ],
+    "note": "Photos : variante au sol à une jambe, bassin posé. Elles ne montrent pas un curl en pont à deux jambes. Ne force pas si la serviette accroche.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Platform_Hamstring_Slides/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Platform_Hamstring_Slides/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Platform_Hamstring_Slides"
+  },
+  {
+    "id": "g21",
+    "name": "Mollets debout",
+    "equipment": "Poids du corps / mollets",
+    "steps": [
+      "Debout, prends un appui léger pour l’équilibre, pieds parallèles.",
+      "Monte sur la pointe des pieds en gardant le corps droit.",
+      "Redescends lentement, sans rebond."
+    ],
+    "note": "La photo montre une machine ; ton programme se fait au poids du corps, sans charge sur les épaules. Le mouvement de cheville reste le même.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Calf_Raises/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Calf_Raises/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Calf_Raises"
+  },
+  {
+    "id": "g22",
+    "name": "Crunch",
+    "equipment": "Au sol / abdos",
+    "steps": [
+      "Allonge-toi, genoux pliés et pieds au sol, mains posées légèrement près de la tête.",
+      "Décolle légèrement les épaules en contractant les abdos et en soufflant.",
+      "Redescends lentement sans tirer sur la nuque."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Crunches/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Crunches/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Crunches"
+  },
+  {
+    "id": "g23",
+    "name": "Gainage",
+    "equipment": "Au sol / sangle abdominale",
+    "steps": [
+      "Pose les avant-bras sous les épaules et prends appui sur les pointes de pieds.",
+      "Aligne tête, bassin et talons, sans creuser le dos ni monter les fesses.",
+      "Respire régulièrement pendant la tenue ; repose-toi dès que l’alignement se dégrade."
+    ],
+    "note": "Garde cette position en respirant ; il ne s’agit pas de répétitions.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Plank/1.jpg"
+    ],
+    "captions": [
+      "Position à tenir"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Plank"
+  },
+  {
+    "id": "g24",
+    "name": "Marche rapide",
+    "equipment": "Tapis / cardio",
+    "steps": [
+      "Commence par une marche confortable avant d’augmenter l’allure.",
+      "Marche d’un pas soutenu, buste droit et bras libres quand tu es stable.",
+      "Ralentis progressivement à la fin de la durée prévue."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Walking_Treadmill/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Walking_Treadmill/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Walking_Treadmill"
+  },
+  {
+    "id": "g25",
+    "name": "Fentes avec haltères",
+    "equipment": "Haltères / jambes",
+    "steps": [
+      "Debout avec les haltères de chaque côté, fais un pas en avant.",
+      "Fléchis les genoux en gardant le buste droit et le pied avant bien posé.",
+      "Pousse dans le pied avant pour revenir, puis change de jambe."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dumbbell_Lunges/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dumbbell_Lunges/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dumbbell_Lunges"
+  },
+  {
+    "id": "g26",
+    "name": "Élévations latérales avec haltères",
+    "equipment": "Haltères / épaules",
+    "steps": [
+      "Debout, haltères près du corps, coudes légèrement fléchis.",
+      "Écarte les bras jusqu’à hauteur des épaules sans prendre d’élan.",
+      "Redescends lentement en gardant les épaules basses."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Side_Lateral_Raise/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Side_Lateral_Raise/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Side_Lateral_Raise"
+  },
+  {
+    "id": "g27",
+    "name": "Curl avec haltères",
+    "equipment": "Haltères / biceps",
+    "steps": [
+      "Debout, paumes vers l’avant et coudes près des côtes.",
+      "Monte les haltères en fléchissant les coudes sans avancer les épaules.",
+      "Reviens lentement, sans balancer le buste."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dumbbell_Bicep_Curl/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dumbbell_Bicep_Curl/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dumbbell_Bicep_Curl"
+  },
+  {
+    "id": "g28",
+    "name": "Tractions",
+    "equipment": "Barre fixe / dos",
+    "steps": [
+      "Prends une barre fixe stable, mains un peu plus larges que les épaules.",
+      "Tire le corps vers le haut en dirigeant les coudes vers le sol, sans élan.",
+      "Redescends avec contrôle. Utilise une assistance si tu ne maîtrises pas le mouvement."
+    ],
+    "note": "",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Pullups/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Pullups/1.jpg"
+    ],
+    "captions": [
+      "Position 1",
+      "Position 2"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Pullups"
+  },
+  {
+    "id": "boxing",
+    "name": "Boxe technique",
+    "equipment": "Sac en mousse / technique",
+    "steps": [
+      "Place un pied devant l’autre, genoux souples, menton légèrement rentré et mains près du visage.",
+      "Lance un direct léger avec le bras avant puis ramène aussitôt la main en garde ; l’autre main protège le visage.",
+      "Travaille à faible intensité, poignets alignés, sans verrouiller brutalement les coudes. Sur sac, utilise des protections adaptées."
+    ],
+    "note": "Démonstrations de garde et de direct à vide. Sur ton sac en mousse, reste sur une frappe contrôlée.",
+    "images": [
+      "https://www.24hourfitness.com/24life/fitness/2019/media_1c24af7d3430b7ecc1850ceac1ac5397c1788f154.gif?format=gif&optimize=medium&width=750",
+      "https://www.24hourfitness.com/24life/fitness/2019/media_172c3848245805ffd38cf310d9b883310d3ab3ff0.gif?format=gif&optimize=medium&width=750"
+    ],
+    "captions": [
+      "La garde",
+      "Le direct avant"
+    ],
+    "source": "https://www.24hourfitness.com/24life/fitness/2019/workout-boxing-on-the-go"
+  },
+  {
+    "id": "core",
+    "name": "Crunch + gainage",
+    "equipment": "Au sol / abdos",
+    "steps": [
+      "Crunch : genoux pliés, pieds au sol. Décolle légèrement les épaules en soufflant, sans tirer la nuque, puis redescends.",
+      "Gainage : avant-bras sous les épaules, en appui sur les pointes de pieds. Garde tête, bassin et talons alignés, et respire.",
+      "Réalise les deux mouvements séparément, selon les séries prévues."
+    ],
+    "note": "Deux mouvements différents : la première photo illustre le crunch, la seconde le gainage.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Crunches/1.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Plank/1.jpg"
+    ],
+    "captions": [
+      "Crunch",
+      "Gainage"
+    ],
+    "source": "https://github.com/yuhonas/free-exercise-db"
+  }
+];
+if(typeof module!=='undefined')module.exports=GUIDES;
+
+'use strict';
 const Fitness = (() => {
   const program = typeof module !== 'undefined' ? require('./program.js') : PROGRAM;
+  const guides = typeof module !== 'undefined' ? require('./guides.js') : GUIDES;
   const KEY='otmabinks-training-club-v2', LEGACY_KEY='otma_fit_tracker_v1';
   const dateKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
   function monday(date=new Date()){const d=new Date(date);d.setHours(12,0,0,0);d.setDate(d.getDate()-(d.getDay()+6)%7);return dateKey(d);}
   function offset(key,n){const d=new Date(`${key}T12:00:00`);d.setDate(d.getDate()+n);return dateKey(d);}
-  const empty=()=>({version:2,weeks:{},notes:''});
+  const empty=()=>({version:2,weeks:{},notes:'',extras:[]});
   const emptyWeek=()=>({checks:{},complete:{}});
   const object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
   function validDate(key){return /^\d{4}-\d{2}-\d{2}$/.test(key)&&!Number.isNaN(new Date(`${key}T12:00:00`).valueOf())&&dateKey(new Date(`${key}T12:00:00`))===key&&monday(new Date(`${key}T12:00:00`))===key;}
-  function normalizeWeek(data){
+  function normalizeWeek(data,extras=[]){
     if(!object(data)||!object(data.checks)||!object(data.complete))throw Error('Les données de suivi sont invalides.');
     const week=emptyWeek();
     for(const [key,value] of Object.entries(data.checks)){
       const match=/^([0-6]):(\d{1,2})$/.exec(key);
-      if(!match||!program[+match[1]].items[+match[2]]||typeof value!=='boolean')throw Error('Une case du suivi est invalide.');
+      const extra=/^([0-5]):x_([a-zA-Z0-9_-]+)$/.exec(key);
+      const known=match&&program[+match[1]].items[+match[2]] || extra&&extras.some(e=>e.day===+extra[1]&&e.id===extra[2]);
+      if(!known||typeof value!=='boolean')throw Error('Une case du suivi est invalide.');
       week.checks[key]=value;
     }
     for(const [key,value] of Object.entries(data.complete)){
@@ -272,18 +901,34 @@ const Fitness = (() => {
       if(!('checks' in data)&&!('complete' in data)&&!('notes' in data))throw Error('Ce fichier ne contient aucun suivi OTMABINKS.');
       if(data.notes!==undefined&&typeof data.notes!=='string')throw Error('Les notes sont invalides.');
       const notes=data.notes||'';if(notes.length>20000)throw Error('Les notes dépassent 20 000 caractères.');
-      return {version:2,weeks:{[current]:normalizeWeek({checks:data.checks??{},complete:data.complete??{}})},notes};
+      return {version:2,weeks:{[current]:normalizeWeek({checks:data.checks??{},complete:data.complete??{}})},notes,extras:[]};
     }
     if(data.version!==2||!object(data.weeks)||typeof data.notes!=='string'||data.notes.length>20000)throw Error('Version ou format de sauvegarde incompatible.');
+    const extras=validateExtras(data.extras||[]);
     const weeks={};
-    for(const [key,value] of Object.entries(data.weeks)){if(!validDate(key))throw Error('Une date de semaine est invalide.');weeks[key]=normalizeWeek(value);}
-    return {version:2,weeks,notes:data.notes};
+    for(const [key,value] of Object.entries(data.weeks)){if(!validDate(key))throw Error('Une date de semaine est invalide.');weeks[key]=normalizeWeek(value,extras);}
+    return {version:2,weeks,notes:data.notes,extras};
   }
-  function stats(week=emptyWeek()){
+  function stats(week=emptyWeek(),days=program){
     let done=0,total=0,completed=0;
-    program.forEach((d,i)=>{total+=d.items.length;done+=d.items.filter((_,j)=>week.checks[`${i}:${j}`]).length;if(d.items.length&&week.complete[i])completed++;});
+    days.forEach((d,i)=>{total+=d.items.length;done+=d.items.filter((_,j)=>week.checks[itemKey(d.items[j],i,j)]).length;if(d.items.length&&week.complete[i])completed++;});
     return {done,total,completed};
   }
+  function safePhoto(url){try{const u=new URL(url);return u.protocol==='https:'&&url.length<=2048&&!u.username&&!u.password;}catch{return false;}}
+  function validateGuide(g){
+    if(!object(g)||typeof g.name!=='string'||!g.name.trim()||g.name.length>120||typeof g.equipment!=='string'||g.equipment.length>160||!Array.isArray(g.steps)||!g.steps.length||g.steps.length>8||g.steps.some(t=>typeof t!=='string'||!t.trim()||t.length>800)||!Array.isArray(g.images)||g.images.length<1||g.images.length>2||g.images.some(u=>!safePhoto(u)))throw Error('Chaque exercice doit avoir un nom, une explication et une ou deux photos HTTPS.');
+    return {name:g.name,equipment:g.equipment,steps:g.steps,images:g.images,note:typeof g.note==='string'?g.note.slice(0,1000):'',source:typeof g.source==='string'&&safePhoto(g.source)?g.source:'',captions:g.images.map((_,i)=>`Position ${i+1}`)};
+  }
+  function validateExtras(extras){
+    if(!Array.isArray(extras)||extras.length>100)throw Error('Liste d’exercices ajoutés invalide.');const ids=new Set();
+    return extras.map(e=>{if(!object(e)||!Number.isInteger(e.day)||e.day<0||e.day>5||typeof e.id!=='string'||!/^[a-zA-Z0-9_-]{1,80}$/.test(e.id)||ids.has(e.id)||typeof e.from!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(e.from)||Number.isNaN(new Date(e.from+'T12:00:00').valueOf())||dateKey(new Date(e.from+'T12:00:00'))!==e.from||typeof e.sets!=='string'||!e.sets.trim()||e.sets.length>80)throw Error('Un exercice ajouté est invalide.');ids.add(e.id);
+      if(typeof e.guide==='string'){if(!guides.some(g=>g.id===e.guide))throw Error('Fiche inconnue.');return {id:e.id,day:e.day,from:e.from,sets:e.sets,guide:e.guide};}
+      return {id:e.id,day:e.day,from:e.from,sets:e.sets,guide:validateGuide(e.guide)};
+    });
+  }
+  function guideFor(item){return typeof item[3]==='object'?item[3]:guides.find(g=>item[3]?g.id===item[3]:g.name===item[0]);}
+  function itemKey(item,day,index){return `${day}:${item[4]||index}`;}
+  function plan(state,week){return program.map((d,i)=>({...d,items:[...d.items,...(state.extras||[]).filter(e=>e.day===i&&e.from<=offset(week,i)).map(e=>{const g=typeof e.guide==='string'?guides.find(g=>g.id===e.guide):e.guide;return [g.name,g.equipment,e.sets,e.guide,'x_'+e.id];})]}));}
   function streak(state,today=dateKey(new Date())){
     const completed=new Set();
     for(const [wk,w] of Object.entries(state.weeks))for(let i=0;i<6;i++)if(w.complete[i]&&offset(wk,i)<=today)completed.add(offset(wk,i));
@@ -300,7 +945,7 @@ const Fitness = (() => {
     }
     return {current,best,remaining:3-(used[today.slice(0,7)]||0),used,history,start,todayDone:completed.has(today)};
   }
-  return {program,KEY,LEGACY_KEY,dateKey,monday,offset,empty,emptyWeek,validate,stats,streak};
+  return {program,KEY,LEGACY_KEY,dateKey,monday,offset,empty,emptyWeek,validate,stats,streak,guides,guideFor,itemKey,plan,validateExtras,validateGuide};
 })();
 if(typeof module!=='undefined')module.exports=Fitness;
 if(typeof document!=='undefined'){
@@ -326,7 +971,7 @@ if(typeof document!=='undefined'){
   }
   function render(){
     const today=dateKey(new Date()), selected=offset(week,active), locked=selected!==today;
-    const d=program[active], w=currentWeek(), count=d.items.filter((_,i)=>w.checks[`${active}:${i}`]).length;
+    const displayed=Fitness.plan(state,week),d=displayed[active], w=currentWeek(), count=d.items.filter((item,i)=>w.checks[Fitness.itemKey(item,active,i)]).length;
     const fmt=new Intl.DateTimeFormat('fr-FR',{day:'numeric',month:'short'});
     $('week-label').textContent=`${fmt.format(new Date(`${week}T12:00:00`))} — ${fmt.format(new Date(`${offset(week,6)}T12:00:00`))}`;
     $('week-label').title=`Semaine du ${week}`;$('this-week').hidden=week===monday();
@@ -342,10 +987,11 @@ if(typeof document!=='undefined'){
     $('workout-tag').textContent=`${d.name.toUpperCase()} / ${d.tag}`;$('workout-title').textContent=d.title;$('workout-description').textContent=d.desc;$('workout-duration').textContent=d.time;
     $('exercises').replaceChildren();
     d.items.forEach((exercise,i)=>{
-      const checked=!!w.checks[`${active}:${i}`],label=el('label',undefined,`exercise${checked?' done':''}`),info=el('span',undefined,'exercise-info'),input=el('input');
-      info.append(el('span',exercise[0],'exercise-name'),el('span',exercise[1],'exercise-sub'));
+      const key=Fitness.itemKey(exercise,active,i),checked=!!w.checks[key],label=el('div',undefined,`exercise${checked?' done':''}`),info=el('button',undefined,'exercise-info exercise-open'),input=el('input');
+      info.type='button';info.setAttribute('aria-label',`Voir le mouvement : ${exercise[0]}`);info.onclick=()=>openGuide(exercise);
+      info.append(el('span',exercise[0],'exercise-name'),el('span',exercise[1]+' · Voir le mouvement ↗','exercise-sub'));
       input.type='checkbox';input.checked=checked;input.disabled=locked;input.setAttribute('aria-label',`${exercise[0]} terminé`);
-      input.onchange=()=>{if(offset(week,active)!==dateKey(new Date())){render();return;}const record=writableWeek();record.checks[`${active}:${i}`]=input.checked;if(!input.checked)record.complete[active]=false;save();render();$('exercises').querySelectorAll('input')[i].focus({preventScroll:true});};
+      input.onchange=()=>{if(offset(week,active)!==dateKey(new Date())){render();return;}const record=writableWeek();record.checks[key]=input.checked;if(!input.checked)record.complete[active]=false;save();render();$('exercises').querySelectorAll('input')[i].focus({preventScroll:true});};
       label.append(el('span',String(i+1).padStart(2,'0'),'exercise-index'),info,el('span',exercise[2],'exercise-sets'),input);$('exercises').append(label);
     });
     if(!d.items.length){const rest=el('div',undefined,'rest-state');rest.append(el('span','↗','rest-icon'),el('strong','RÉCUPÉRER,\nC’EST AVANCER.'),el('p','Une marche douce, du repos et du temps pour toi. Aujourd’hui, tu recharges.'));$('exercises').append(rest);}
@@ -355,12 +1001,29 @@ if(typeof document!=='undefined'){
     $('complete-session').textContent=w.complete[active]?(d.items.length?'Séance terminée ✓':'Repos validé ✓'):(d.items.length?'Terminer la séance ↗':'Valider ma récupération ↗');
     $('complete-session').setAttribute('aria-pressed',String(!!w.complete[active]));$('complete-session').disabled=locked;
     renderStreak(today);
-    const total=stats(w);$('completed-count').textContent=total.completed;
+    const total=stats(w,displayed);$('completed-count').textContent=total.completed;
     $('week-message').textContent=total.completed===6?'Semaine complète. Beau travail.':total.completed?'Tu avances. Garde le rythme.':'Chaque séance fait la différence.';
     $('week-marks').replaceChildren();program.forEach((day,i)=>{if(!day.items.length)return;const mark=el('span',undefined,w.complete[i]?'done':'');mark.title=`${day.name} : ${w.complete[i]?'terminé':'à faire'}`;$('week-marks').append(mark);});
     $('week-marks').setAttribute('aria-label',`${total.completed} séances terminées sur 6`);
+    $('add-exercise').disabled=selected<today||active===6||(state.extras||[]).length>=100;
     if(blocked)$('save-state').textContent='Sauvegarde indisponible. Pense à exporter.';
   }
+  function openGuide(item){
+    const g=Fitness.guideFor(item);if(!g){message('Fiche introuvable pour ce mouvement.');return;}
+    $('guide-title').textContent=item[0];$('guide-meta').textContent=item[1]+' · '+item[2];$('guide-photos').replaceChildren();
+    g.images.forEach((src,i)=>{const figure=el('figure'),img=el('img');img.src=src;img.alt=`${g.name} — ${g.captions?.[i]||`position ${i+1}`}`;img.referrerPolicy='no-referrer';img.decoding='async';img.onerror=()=>{img.hidden=true;figure.prepend(el('p','Photo indisponible. Vérifie ta connexion ou consulte la source.','photo-error'));};figure.append(img,el('figcaption',g.captions?.[i]||`Position ${i+1}`));$('guide-photos').append(figure);});
+    $('guide-steps').replaceChildren(...g.steps.map(step=>el('li',step)));$('guide-note').textContent=g.note||'Reste sur une amplitude confortable et un mouvement contrôlé.';
+    $('guide-source').hidden=!g.source;$('guide-source').href=g.source||'#';$('exercise-guide').showModal();
+  }
+  $('close-guide').onclick=()=>$('exercise-guide').close();
+  const choose=$('guide-choice');Fitness.guides.forEach(g=>{const option=el('option',g.name);option.value=g.id;choose.append(option);});const customOption=el('option','Autre exercice : créer sa fiche');customOption.value='custom';choose.append(customOption);
+  function selection(){const custom=choose.value==='custom';$('custom-guide-fields').hidden=!custom;for(const input of $('custom-guide-fields').querySelectorAll('input,textarea')){input.disabled=!custom;input.required=custom&&input.hasAttribute('data-required');}const g=Fitness.guides.find(g=>g.id===choose.value);$('chosen-guide-info').textContent=custom?'Pour ce nouveau mouvement, ajoute une explication et au moins une photo.':g?`${g.equipment} · ${g.images.length} photo(s) et une explication incluses.`:'';$('preview-guide').hidden=!g;}
+  choose.onchange=selection;
+  $('preview-guide').onclick=()=>{const g=Fitness.guides.find(g=>g.id===choose.value);if(g)openGuide([g.name,g.equipment,$('extra-sets').value||'À définir',g.id]);};
+  let addDate,addDay;
+  $('add-exercise').onclick=()=>{addDate=offset(week,active);addDay=active;if(addDate<dateKey(new Date())||active===6)return;$('add-form').reset();choose.value=Fitness.guides[0].id;$('add-day-label').textContent=`${program[active].name}, à partir du ${new Intl.DateTimeFormat('fr-FR',{day:'numeric',month:'long'}).format(new Date(addDate+'T12:00:00'))}`;selection();$('add-error').textContent='';$('add-dialog').showModal();};
+  $('close-add').onclick=$('cancel-add').onclick=()=>$('add-dialog').close();
+  $('add-form').onsubmit=e=>{e.preventDefault();try{if(addDate<dateKey(new Date()))throw Error('Le jour a changé. Rouvre l’ajout sur une journée à venir.');let guide=choose.value;if(guide==='custom')guide=Fitness.validateGuide({name:$('custom-name').value.trim(),equipment:$('custom-equipment').value.trim(),steps:$('custom-steps').value.split('\n').map(s=>s.trim()).filter(Boolean),images:[$('custom-photo-1').value.trim(),$('custom-photo-2').value.trim()].filter(Boolean),note:'Fiche personnelle ajoutée par toi.'});const extra={id:crypto.randomUUID(),day:addDay,from:addDate,sets:$('extra-sets').value.trim(),guide};const before=JSON.parse(JSON.stringify(state));state.extras=Fitness.validateExtras([...(state.extras||[]),extra]);const targetWeek=monday(new Date(addDate+'T12:00:00'));if(state.weeks[targetWeek])state.weeks[targetWeek].complete[addDay]=false;if(!save()){state=before;throw Error('Impossible d’enregistrer cet ajout. Exporte ton suivi ou libère de l’espace.');}$('add-dialog').close();render();message('Exercice ajouté avec sa fiche. Il reviendra chaque semaine à partir de cette date.');}catch(error){$('add-error').textContent=error.message;}};
   function renderStreak(today){
     const result=Fitness.streak(state,today);
     $('streak-count').textContent=result.current;
@@ -376,7 +1039,7 @@ if(typeof document!=='undefined'){
   function refreshNotes(){$('notes').value=state.notes;$('note-count').textContent=`${state.notes.length.toLocaleString('fr-FR')} / 20 000`;}
   $('notes').oninput=()=>{state.notes=$('notes').value;$('note-count').textContent=`${state.notes.length.toLocaleString('fr-FR')} / 20 000`;save();};
   $('prev-week').onclick=()=>{week=offset(week,-7);render();};$('next-week').onclick=()=>{week=offset(week,7);render();};$('this-week').onclick=()=>{week=monday();render();};
-  $('complete-session').onclick=()=>{if(offset(week,active)!==dateKey(new Date())){render();return;}const w=writableWeek();w.complete[active]=!w.complete[active];if(w.complete[active])program[active].items.forEach((_,i)=>w.checks[`${active}:${i}`]=true);save();render();if(w.complete[active])message(program[active].items.length?'Séance validée. Un pas de plus.':'Récupération validée.');};
+  $('complete-session').onclick=()=>{if(offset(week,active)!==dateKey(new Date())){render();return;}const w=writableWeek();w.complete[active]=!w.complete[active];if(w.complete[active])Fitness.plan(state,week)[active].items.forEach((item,i)=>w.checks[Fitness.itemKey(item,active,i)]=true);save();render();if(w.complete[active])message(program[active].items.length?'Séance validée. Un pas de plus.':'Récupération validée.');};
   $('export').onclick=()=>{const blob=new Blob([JSON.stringify({...state,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),link=el('a');link.href=url;link.download=`otmabinks-suivi-${dateKey(new Date())}.json`;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);message('Ton export est prêt. Garde-le pour retrouver ton suivi.');};
   $('import').onclick=()=>$('import-file').click();
   $('import-file').onchange=async()=>{
