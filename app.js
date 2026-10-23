@@ -41,7 +41,23 @@ const Fitness = (() => {
     program.forEach((d,i)=>{total+=d.items.length;done+=d.items.filter((_,j)=>week.checks[`${i}:${j}`]).length;if(d.items.length&&week.complete[i])completed++;});
     return {done,total,completed};
   }
-  return {program,KEY,LEGACY_KEY,dateKey,monday,offset,empty,emptyWeek,validate,stats};
+  function streak(state,today=dateKey(new Date())){
+    const completed=new Set();
+    for(const [wk,w] of Object.entries(state.weeks))for(let i=0;i<6;i++)if(w.complete[i]&&offset(wk,i)<=today)completed.add(offset(wk,i));
+    const start=[...completed].sort()[0];
+    const used={},history={};let current=0,best=0;
+    if(start)for(let date=start;date<=today;date=offset(date,1)){
+      const rest=new Date(`${date}T12:00:00`).getDay()===0,month=date.slice(0,7);
+      if(completed.has(date)){current++;history[date]='done';}
+      else if(rest){if(current)current++;history[date]='rest';}
+      else if(date===today){history[date]='pending';}
+      else if(current&&(used[month]||0)<3){used[month]=(used[month]||0)+1;history[date]='frozen';}
+      else {history[date]=current?'broken':'missed';current=0;}
+      best=Math.max(best,current);
+    }
+    return {current,best,remaining:3-(used[today.slice(0,7)]||0),used,history,start,todayDone:completed.has(today)};
+  }
+  return {program,KEY,LEGACY_KEY,dateKey,monday,offset,empty,emptyWeek,validate,stats,streak};
 })();
 if(typeof module!=='undefined')module.exports=Fitness;
 if(typeof document!=='undefined'){
@@ -66,6 +82,7 @@ if(typeof document!=='undefined'){
     return new Promise(resolve=>{const dialog=$('confirm-dialog');$('confirm-title').textContent=title;$('confirm-message').textContent=text;$('confirm-action').textContent=action;dialog.returnValue='';dialog.addEventListener('close',()=>resolve(dialog.returnValue==='confirm'),{once:true});dialog.showModal();});
   }
   function render(){
+    const today=dateKey(new Date()), selected=offset(week,active), locked=selected!==today;
     const d=program[active], w=currentWeek(), count=d.items.filter((_,i)=>w.checks[`${active}:${i}`]).length;
     const fmt=new Intl.DateTimeFormat('fr-FR',{day:'numeric',month:'short'});
     $('week-label').textContent=`${fmt.format(new Date(`${week}T12:00:00`))} — ${fmt.format(new Date(`${offset(week,6)}T12:00:00`))}`;
@@ -84,27 +101,39 @@ if(typeof document!=='undefined'){
     d.items.forEach((exercise,i)=>{
       const checked=!!w.checks[`${active}:${i}`],label=el('label',undefined,`exercise${checked?' done':''}`),info=el('span',undefined,'exercise-info'),input=el('input');
       info.append(el('span',exercise[0],'exercise-name'),el('span',exercise[1],'exercise-sub'));
-      input.type='checkbox';input.checked=checked;input.setAttribute('aria-label',`${exercise[0]} terminé`);
-      input.onchange=()=>{const record=writableWeek();record.checks[`${active}:${i}`]=input.checked;if(!input.checked)record.complete[active]=false;save();render();$('exercises').querySelectorAll('input')[i].focus({preventScroll:true});};
+      input.type='checkbox';input.checked=checked;input.disabled=locked;input.setAttribute('aria-label',`${exercise[0]} terminé`);
+      input.onchange=()=>{if(offset(week,active)!==dateKey(new Date())){render();return;}const record=writableWeek();record.checks[`${active}:${i}`]=input.checked;if(!input.checked)record.complete[active]=false;save();render();$('exercises').querySelectorAll('input')[i].focus({preventScroll:true});};
       label.append(el('span',String(i+1).padStart(2,'0'),'exercise-index'),info,el('span',exercise[2],'exercise-sets'),input);$('exercises').append(label);
     });
     if(!d.items.length){const rest=el('div',undefined,'rest-state');rest.append(el('span','↗','rest-icon'),el('strong','RÉCUPÉRER,\nC’EST AVANCER.'),el('p','Une marche douce, du repos et du temps pour toi. Aujourd’hui, tu recharges.'));$('exercises').append(rest);}
-    document.querySelector('.list-heading').hidden=!d.items.length;$('session-progress').hidden=!d.items.length;$('reset-session').hidden=!d.items.length;
+    document.querySelector('.list-heading').hidden=!d.items.length;$('session-progress').hidden=!d.items.length;$('session-date-hint').textContent=locked?(selected>today?'Cette séance pourra être validée le jour prévu.':'Historique conservé : les journées passées ne sont plus modifiables.'):'Valide ta séance avant minuit pour prolonger ta série.';
     const percent=d.items.length?Math.round(count/d.items.length*100):0;
     $('session-count').textContent=`${count} / ${d.items.length} exercices`;$('session-percent').textContent=`${percent} %`;$('exercise-progress').value=percent;
     $('complete-session').textContent=w.complete[active]?(d.items.length?'Séance terminée ✓':'Repos validé ✓'):(d.items.length?'Terminer la séance ↗':'Valider ma récupération ↗');
-    $('complete-session').setAttribute('aria-pressed',String(!!w.complete[active]));
+    $('complete-session').setAttribute('aria-pressed',String(!!w.complete[active]));$('complete-session').disabled=locked;
+    renderStreak(today);
     const total=stats(w);$('completed-count').textContent=total.completed;
     $('week-message').textContent=total.completed===6?'Semaine complète. Beau travail.':total.completed?'Tu avances. Garde le rythme.':'Chaque séance fait la différence.';
     $('week-marks').replaceChildren();program.forEach((day,i)=>{if(!day.items.length)return;const mark=el('span',undefined,w.complete[i]?'done':'');mark.title=`${day.name} : ${w.complete[i]?'terminé':'à faire'}`;$('week-marks').append(mark);});
     $('week-marks').setAttribute('aria-label',`${total.completed} séances terminées sur 6`);
     if(blocked)$('save-state').textContent='Sauvegarde indisponible. Pense à exporter.';
   }
+  function renderStreak(today){
+    const result=Fitness.streak(state,today);
+    $('streak-count').textContent=result.current;
+    $('streak-best').textContent=`Record : ${result.best} jour${result.best>1?'s':''}`;
+    $('streak-message').textContent=!result.start?'Ta première séance lance ta série.':result.todayDone?'C’est fait pour aujourd’hui. À demain.':new Date(`${today}T12:00:00`).getDay()===0?'Dimanche : ta récupération protège ta série.':result.current?'Ta série continue. À toi de jouer aujourd’hui.':'Une nouvelle séance, un nouveau départ.';
+    $('freeze-count').textContent=`${result.remaining} / 3 gels disponibles`;
+    $('freeze-month').textContent=new Intl.DateTimeFormat('fr-FR',{month:'long',year:'numeric'}).format(new Date(`${today}T12:00:00`));
+    $('freezes').replaceChildren();for(let i=0;i<3;i++)$('freezes').append(el('span',i<result.remaining?'❄':'—',i<result.remaining?'available':'spent'));
+    $('streak-history').replaceChildren();
+    const labels={done:'Séance validée',rest:'Repos prévu',frozen:'Gel utilisé',broken:'Série interrompue',missed:'Séance manquée',pending:'À faire aujourd’hui',idle:'Avant le début de la série'};
+    for(let i=27;i>=0;i--){const date=offset(today,-i),kind=result.history[date]||'idle',cell=el('span',new Date(`${date}T12:00:00`).getDate(),`history-day ${kind}`);cell.title=`${date} : ${labels[kind]}`;cell.setAttribute('aria-label',cell.title);$('streak-history').append(cell);}
+  }
   function refreshNotes(){$('notes').value=state.notes;$('note-count').textContent=`${state.notes.length.toLocaleString('fr-FR')} / 20 000`;}
   $('notes').oninput=()=>{state.notes=$('notes').value;$('note-count').textContent=`${state.notes.length.toLocaleString('fr-FR')} / 20 000`;save();};
   $('prev-week').onclick=()=>{week=offset(week,-7);render();};$('next-week').onclick=()=>{week=offset(week,7);render();};$('this-week').onclick=()=>{week=monday();render();};
-  $('complete-session').onclick=()=>{const w=writableWeek();w.complete[active]=!w.complete[active];if(w.complete[active])program[active].items.forEach((_,i)=>w.checks[`${active}:${i}`]=true);save();render();if(w.complete[active])message(program[active].items.length?'Séance validée. Un pas de plus.':'Récupération validée.');};
-  $('reset-session').onclick=async()=>{const targetWeek=week,targetDay=active;if(!await confirmAction('Repartir de zéro ?','Les coches de cette séance seront retirées. Tes notes et les autres séances seront conservées.','Réinitialiser'))return;const w=state.weeks[targetWeek];if(w){program[targetDay].items.forEach((_,i)=>delete w.checks[`${targetDay}:${i}`]);w.complete[targetDay]=false;}save();render();message('Les coches de la séance ont été réinitialisées.');};
+  $('complete-session').onclick=()=>{if(offset(week,active)!==dateKey(new Date())){render();return;}const w=writableWeek();w.complete[active]=!w.complete[active];if(w.complete[active])program[active].items.forEach((_,i)=>w.checks[`${active}:${i}`]=true);save();render();if(w.complete[active])message(program[active].items.length?'Séance validée. Un pas de plus.':'Récupération validée.');};
   $('export').onclick=()=>{const blob=new Blob([JSON.stringify({...state,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),link=el('a');link.href=url;link.download=`otmabinks-suivi-${dateKey(new Date())}.json`;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);message('Ton export est prêt. Garde-le pour retrouver ton suivi.');};
   $('import').onclick=()=>$('import-file').click();
   $('import-file').onchange=async()=>{
@@ -118,5 +147,8 @@ if(typeof document!=='undefined'){
     }catch(e){message(`Import refusé. ${e instanceof SyntaxError?'Ce fichier JSON est invalide.':e.message} Ton suivi est conservé.`,true);}
     finally{$('import-file').value='';}
   };
+  let lastDate=dateKey(new Date());
+  function checkDate(){const now=dateKey(new Date());if(now!==lastDate){lastDate=now;week=monday();active=(new Date().getDay()+6)%7;render();}}
+  setInterval(checkDate,30000);window.addEventListener('focus',checkDate);document.addEventListener('visibilitychange',checkDate);
   refreshNotes();render();
 }

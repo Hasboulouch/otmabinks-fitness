@@ -9,7 +9,7 @@ Les 7 jours et les 30 exercices sont repris **à l’identique** du fichier four
 ## Fonctions
 
 - Sept boutons de jours, navigation entre les semaines, coches par exercice et progression.
-- Validation de séance (coche aussi les exercices), annulation de validation et réinitialisation avec confirmation.
+- Validation de séance (coche aussi les exercices), annulation de validation le jour même.
 - Compteur limité aux 6 séances : le dimanche de récupération ne l’augmente pas.
 - Carnet personnel global, sauvegardé automatiquement dans ce navigateur.
 - Export complet JSON version 2 et import validé avant confirmation du remplacement.
@@ -35,3 +35,9 @@ Aperçu local : `python3 -m http.server 8080 --bind 127.0.0.1`.
 ## Photo
 
 Photographie de salle de sport : Unsplash, identifiant `photo-1534438327276-14e5300c3a48`, https://images.unsplash.com/photo-1534438327276-14e5300c3a48. Traitement monochrome par CSS. Aucun asset de Nike n’est utilisé.
+
+## Série continue et gels
+
+Le bouton Réinitialiser est supprimé. La série commence à la première séance validée et est recalculée à partir de tout l’historique daté. Les séances validées ajoutent un jour ; le dimanche de repos ajoute un jour à une série active sans consommer de gel. Un gel protège la série mais n’ajoute pas de jour. Chaque jour d’entraînement manqué, après minuit local, consomme automatiquement un gel si une série est active. Après trois gels consommés dans le mois, le jour manqué suivant interrompt la série. Les jours manqués sans série active ne consomment pas de gel. Le budget revient à trois au début de chaque mois, sans cumul. Le record reste visible.
+
+L’application affiche les 28 derniers jours et conserve tout l’historique dans le stockage du navigateur et dans les exports. Les journées passées et futures sont consultables mais non modifiables depuis l’interface. Une journée en cours n’est jamais pénalisée avant minuit. Le changement de jour est détecté à la réouverture, au retour dans l’onglet et toutes les 30 secondes. Aucun serveur ou compte n’est nécessaire ; l’horloge locale et les données du navigateur font foi. Pour changer de navigateur ou d’appareil, utiliser Exporter / Importer.
