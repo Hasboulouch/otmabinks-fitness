@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101514">
+  <meta name="description" content="OTMABINKS FITNESS — ton programme, tes séances et ta progression, semaine après semaine.">
+  <title>OTMABINKS FITNESS</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar"><a class="brand" href="./" aria-label="OTMABINKS FITNESS, accueil"><span class="brand-icon">O.</span><span>OTMABINKS<span class="brand-sub">FITNESS / TRAINING JOURNAL</span></span></a><span class="local-badge"><i></i> Ton espace perso</span></header>
+    <main>
+      <section class="intro"><p class="eyebrow">UNE SÉANCE À LA FOIS.</p><h1>Construis ta<br><em>régularité.</em></h1><p class="muted">Ton programme. Ton rythme. Tes progrès.</p></section>
+      <section class="week-panel" aria-label="Suivi hebdomadaire"><div><p class="eyebrow">TA SEMAINE</p><div class="week-nav"><button id="prev-week" aria-label="Semaine précédente">←</button><h2 id="week-label"></h2><button id="next-week" aria-label="Semaine suivante">→</button></div><button class="text-button" id="this-week">Revenir à cette semaine</button></div><div class="progress-block"><span id="week-count"></span><strong id="week-percent">0 %</strong><progress id="week-progress" max="100" value="0" aria-label="Progression de la semaine"></progress></div></section>
+      <nav id="days" class="days" aria-label="Choisir le jour"></nav>
+      <div class="workspace"><section class="workout"><div class="section-heading"><div><p class="eyebrow" id="day-label"></p><h2 id="session-title"></h2></div><button id="edit-plan" class="secondary">Modifier la séance</button></div><div id="exercise-list"></div><div id="day-summary" class="day-summary"></div></section><aside><section class="notes-card"><p class="eyebrow">LE CARNET</p><h2>Notes de séance</h2><p class="muted">Charges, sensations, idées pour la prochaine fois.</p><label class="sr-only" for="notes">Notes pour le jour sélectionné</label><textarea id="notes" maxlength="20000" placeholder="Aujourd’hui, j’ai…"></textarea><p class="save-hint" id="save-hint">Enregistrement automatique sur cet appareil</p></section><section class="tip-card"><span class="spark">↗</span><h3>Garde une trace.</h3><p>Exporte régulièrement tes données pour les conserver ou les retrouver sur un autre appareil.</p></section></aside></div>
+      <section class="data-bar"><div><h3>Ton suivi reste avec toi.</h3><p>Stocké dans ce navigateur. Aucun compte nécessaire.</p></div><div class="data-actions"><button id="export" class="secondary">↓ Exporter</button><button id="import" class="secondary">↑ Importer</button><input type="file" id="import-file" accept="application/json,.json" hidden></div></section>
+      <p id="status" role="status" aria-live="polite"></p>
+    </main><footer><span>OTMABINKS FITNESS</span><span>LA RÉGULARITÉ FAIT LA DIFFÉRENCE.</span></footer>
+  </div>
+  <dialog id="editor"><form id="editor-form"><div class="section-heading"><div><p class="eyebrow">TON PROGRAMME</p><h2 id="editor-title">Modifier la séance</h2></div><button type="button" id="close-editor" class="secondary" aria-label="Fermer">✕</button></div><p class="muted">Le programme s’applique à toutes les semaines. Les cases et les notes restent propres à chaque semaine.</p><label>Nom de la séance<input id="session-name" maxlength="100" required></label><div id="editor-rows"></div><button type="button" id="add-exercise" class="secondary">+ Ajouter un exercice</button><p class="muted">Laisse la liste vide pour une journée de repos.</p><div class="dialog-actions"><button type="button" id="cancel-editor" class="secondary">Annuler</button><button type="submit" class="primary">Enregistrer la séance</button></div></form></dialog>
+</body>
+</html>
