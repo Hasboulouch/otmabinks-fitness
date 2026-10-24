@@ -27,11 +27,6 @@ const PROGRAM = [
         "Extension triceps",
         "Poulie haute + barre courbée",
         "3 × 10–15"
-      ],
-      [
-        "Élévations frontales",
-        "Poulie basse + barre courbée",
-        "2 × 10–15"
       ]
     ]
   },
@@ -161,11 +156,6 @@ const PROGRAM = [
           "note": "Alternative si ta machine ne permet pas le trajet: refais l’extension triceps à la poulie haute.",
           "source": ""
         }
-      ],
-      [
-        "Élévations frontales",
-        "Poulie basse + barre",
-        "2 × 12–15"
       ]
     ]
   },
@@ -209,11 +199,6 @@ const PROGRAM = [
         "Curl unilatéral",
         "Poulie basse + poignée",
         "3 × 10–12 / bras"
-      ],
-      [
-        "Curl inversé",
-        "Poulie basse + barre courbée",
-        "2 × 12–15"
       ]
     ]
   },
@@ -222,18 +207,18 @@ const PROGRAM = [
     "name": "Samedi",
     "tag": "LEGS",
     "title": "Jambes complètes • MARCY",
-    "time": "50–60 min",
-    "desc": "Résistance réglable: quads, ischios, fessiers, intérieur/extérieur des cuisses et mollets.",
+    "time": "45–60 min",
+    "desc": "5 exercices: priorité aux mouvements avec résistance réglable, sans volume superflu. Abduction/adduction en option selon tes envies.",
     "items": [
       [
         "Leg extension",
         "Module jambes MARCY",
-        "4 × 10–15"
+        "3 × 10–15"
       ],
       [
         "Leg curl debout à la poulie",
         "Poulie basse + sangle cheville compatible",
-        "3 × 10–15 / jambe",
+        "3 × 10–12 / jambe",
         {
           "name": "Leg curl debout à la poulie",
           "equipment": "Station MARCY",
@@ -269,7 +254,7 @@ const PROGRAM = [
       [
         "Leg kick back",
         "Poulie basse + sangle cheville compatible",
-        "3 × 12–15 / jambe",
+        "2 × 12–15 / jambe",
         {
           "name": "Leg kick back",
           "equipment": "Station MARCY",
@@ -281,24 +266,6 @@ const PROGRAM = [
           "images": [],
           "captions": [],
           "note": "Conforme au schéma « Leg Kick Back » affiché sur la MARCY.",
-          "source": ""
-        }
-      ],
-      [
-        "Outer leg kick / abduction",
-        "Poulie basse + sangle cheville compatible",
-        "2 × 12–15 / jambe",
-        {
-          "name": "Outer leg kick / abduction",
-          "equipment": "Station MARCY",
-          "steps": [
-            "Debout, corps stable, fixe la sangle à la cheville la plus éloignée de la poulie.",
-            "Éloigne latéralement la jambe contre la résistance sans incliner le tronc.",
-            "Reviens lentement, amplitude confortable."
-          ],
-          "images": [],
-          "captions": [],
-          "note": "Alterne certaines semaines avec Inner Thigh Leg Cross (adducteurs), selon ta récupération.",
           "source": ""
         }
       ],
