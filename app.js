@@ -106,11 +106,11 @@ if(typeof document!=='undefined'){
         const cleaned={version:2,weeks:{},notes:previous.notes.slice(0,20000),extras:[]};
         try{cleaned.extras=Fitness.validateExtras(previous.extras||[]);}catch{}
         for(const [weekKey,record] of Object.entries(previous.weeks)){
-          if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(weekKey)||!record||typeof record!=='object')continue;
+          if(!/^\d{4}-\d{2}-\d{2}$/.test(weekKey)||!record||typeof record!=='object')continue;
           const checks={},complete={};
           for(const [k,v] of Object.entries(record.checks||{})){
             if(v!==true&&v!==false)continue;
-            const match=/^([0-6]):(\\d{1,2})$/.exec(k);
+            const match=/^([0-6]):(\d{1,2})$/.exec(k);
             const extra=/^([0-5]):x_([a-zA-Z0-9_-]+)$/.exec(k);
             if(match&&program[+match[1]]?.items[+match[2]]||extra&&cleaned.extras.some(e=>e.day===+extra[1]&&e.id===extra[2]))checks[k]=v;
           }
