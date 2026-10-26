@@ -58,7 +58,7 @@ const Fitness = (() => {
       return {id:e.id,day:e.day,from:e.from,sets:e.sets,guide:validateGuide(e.guide)};
     });
   }
-  function guideFor(item){return typeof item[3]==='object'?item[3]:guides.find(g=>item[3]?g.id===item[3]:g.name===item[0]);}
+  function guideFor(item){const supplied=item[3];if(supplied!==null&&typeof supplied==='object')return supplied;return guides.find(g=>typeof supplied==='string'&&g.id===supplied)||guides.find(g=>g.name===item[0]);}
   function itemKey(item,day,index){return `${day}:${item[4]||index}`;}
   function plan(state,week){return program.map((d,i)=>({...d,items:[...d.items,...(state.extras||[]).filter(e=>e.day===i&&e.from<=offset(week,i)).map(e=>{const g=typeof e.guide==='string'?guides.find(g=>g.id===e.guide):e.guide;return [g.name,g.equipment,e.sets,e.guide,'x_'+e.id];})]}));}
   function streak(state,today=dateKey(new Date())){
