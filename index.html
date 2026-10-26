@@ -1,13 +1,102 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f7f7f2"><meta name="description" content="OTMABINKS Training Club. Ton programme personnel, tes séances et tes progrès, un jour à la fois."><title>OTMABINKS — Training Club</title><link rel="stylesheet" href="style.css"><script src="program.js" defer></script><script src="guides.js" defer></script><script src="app.js" defer></script></head><body>
-<a class="skip" href="#programme">Aller au programme</a>
-<header class="site-header page-width"><a href="#" class="brand" aria-label="OTMABINKS Training Club, accueil"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5 29 17 8h9L14 29zm14 0L31 8h5L24 29z" fill="currentColor"/></svg><span>OTMABINKS<small>TRAINING CLUB</small></span></a><nav aria-label="Navigation principale"><a class="nav-active" href="#programme">Mon programme</a><a href="#journal">Mon carnet</a></nav><a class="avatar" href="#journal" aria-label="Mon espace personnel">O.</a></header>
-<main><section class="hero page-width" aria-labelledby="hero-title"><div class="hero-copy"><p class="eyebrow"><span class="orange-dot"></span> TON TERRAIN. TES RÈGLES.</p><h1 id="hero-title">PLUS FORT.<br>CHAQUE JOUR.</h1><p class="hero-description">Un plan clair. Du travail régulier.<br>Le reste, tu le construis.</p><a href="#programme" class="button dark hero-cta">Voir ma séance <span aria-hidden="true">↗</span></a><div class="hero-bottom"><span>FORCE & CONDITION</span><span>MARCY / CARDIO</span></div></div><div class="hero-photo"><img src="assets/training.jpg" alt="Équipements dans une salle d’entraînement" width="1400" height="934" fetchpriority="high"><div class="photo-top"><span>LE CLUB, C’EST TOI.</span><span aria-hidden="true">↗</span></div><div class="photo-bottom"><span>SHOW UP.<br>BUILD UP.</span><small>OTMABINKS<br>PERSONAL TRAINING</small></div></div></section>
-<div class="program-strip page-width"><span><b>06</b> séances / semaine</span><span><b>04</b> haut du corps</span><span><b>01</b> jambes + abdos</span><span><b>01</b> cardio</span><span class="strip-end">UN PROGRAMME. TON RYTHME.</span></div>
-<section id="regularite" class="streak-section page-width" aria-labelledby="streak-title"><div class="streak-main"><p class="eyebrow orange">NE BRISE PAS LE RYTHME</p><h2 id="streak-title">Ta série continue.</h2><div class="streak-number"><strong id="streak-count">0</strong><span>jours de régularité<br><small id="streak-best">Record : 0 jours</small></span></div><p id="streak-message"></p></div><div class="freeze-panel"><p class="eyebrow quiet">TES CHANCES DU MOIS</p><div id="freezes" class="freezes" aria-hidden="true"></div><strong id="freeze-count">3 / 3 gels disponibles</strong><p id="freeze-month"></p><details><summary>Comment ça marche ? <span>+</span></summary><p>Une séance validée prolonge ta série. Un jour d’entraînement manqué utilise automatiquement un gel, dès le lendemain. Le gel protège ta série sans ajouter de jour. Après trois gels dans le même mois, le prochain jour manqué casse la série. Trois nouveaux gels arrivent le 1er de chaque mois, sans cumul. Le dimanche compte comme repos dans une série active, sans gel. Le suivi démarre à ta première séance validée.</p></details></div><div class="history-panel"><p class="eyebrow quiet">TES 28 DERNIERS JOURS</p><div id="streak-history" class="streak-history"></div><p class="history-legend"><span>● Séance</span><span>❄ Gel</span><span>○ Repos</span><span>× Manqué</span></p></div></section>
-<section id="programme" class="program page-width" aria-labelledby="program-title"><div class="section-top"><div><p class="eyebrow quiet">LE PLAN DE MATCH</p><h2 id="program-title">Ta semaine.</h2></div><div class="week-switch"><button id="prev-week" class="icon-button" aria-label="Semaine précédente">←</button><div><span id="week-label"></span><button id="this-week" class="text-button" hidden>Cette semaine</button></div><button id="next-week" class="icon-button" aria-label="Semaine suivante">→</button></div></div><nav class="days" id="days" aria-label="Choisir le jour d’entraînement"></nav>
-<div class="training-layout"><section class="workout" aria-labelledby="workout-title"><div class="workout-heading"><div><p class="eyebrow orange" id="workout-tag"></p><h3 id="workout-title"></h3><p id="workout-description" class="muted"></p></div><span class="duration" id="workout-duration"></span></div><div class="list-heading" aria-hidden="true"><span>LES MOUVEMENTS</span><span>SÉRIES × RÉPÉTITIONS</span></div><div id="exercises"></div><button id="add-exercise" class="button outline add-exercise">+ Ajouter un exercice</button><div id="session-progress" class="session-progress"><div><span id="session-count"></span><span id="session-percent"></span></div><progress id="exercise-progress" max="100" value="0" aria-label="Progression de la séance"></progress></div><div class="session-actions"><button class="button dark" id="complete-session">Terminer la séance <span aria-hidden="true">↗</span></button></div><p id="session-date-hint" class="date-hint"></p></section>
-<aside class="sidebar"><section class="weekly-card"><div class="card-heading"><p class="eyebrow quiet">LA RÉGULARITÉ COMPTE</p><span class="mini-symbol" aria-hidden="true">↗</span></div><div class="weekly-number"><strong id="completed-count">0</strong><span>/ 6</span></div><p id="week-message">Chaque séance fait la différence.</p><div id="week-marks" class="week-marks" aria-label="Séances terminées"></div><span class="caption">SÉANCES TERMINÉES CETTE SEMAINE</span></section><section class="prep-card"><p class="eyebrow quiet">AVANT DE COMMENCER</p><div class="prep-row"><span>Échauffement</span><strong>5 min</strong></div><div class="prep-row"><span>Repos entre séries</span><strong>60–120 s</strong></div><div class="prep-row"><span>Répétitions en réserve</span><strong>1–3</strong></div><details><summary>Les repères du programme <span aria-hidden="true">+</span></summary><p>Commence avec 2 séries par mouvement si la reprise est difficile. Vérifie la stabilité des attaches et la trajectoire des câbles. Les mouvements à la poulie restent à adapter à ta station réelle.</p></details></section><div class="club-note"><span aria-hidden="true">↗</span><p>PAS BESOIN<br>D’ÊTRE PARFAIT.<br><span>JUSTE PRÉSENT.</span></p></div></aside></div></section>
-<section class="journal page-width" id="journal" aria-labelledby="journal-title"><div class="journal-intro"><p class="eyebrow quiet">AU-DELÀ DES RÉPÉTITIONS</p><h2 id="journal-title">Ton carnet.</h2><p class="muted">Les charges qui montent.<br>Les sensations qui changent.<br>Tout ce que tu veux retenir.</p><span class="saved-status" id="save-state">Enregistré sur cet appareil</span></div><div class="journal-paper"><label for="notes">NOTES PERSONNELLES <span aria-hidden="true">↗</span></label><textarea id="notes" maxlength="20000" placeholder="Aujourd’hui, j’ai…&#10;&#10;Charges, sensations, progression, ajustements."></textarea><div class="journal-bottom"><span>Tes notes restent dans ton navigateur.</span><span id="note-count">0 / 20 000</span></div></div></section>
-<section class="data-section page-width"><div><h3>Ton suivi, partout avec toi.</h3><p>Exporte tes données pour les garder ou les retrouver sur un autre appareil.</p></div><div class="data-actions"><button id="export" class="button outline">Exporter <span aria-hidden="true">↓</span></button><button id="import" class="button outline">Importer <span aria-hidden="true">↑</span></button><input id="import-file" type="file" accept="application/json,.json" hidden></div></section></main>
-<footer class="page-width"><a href="#" class="footer-brand">OTMABINKS<span>TRAINING CLUB</span></a><p>Ton programme personnel. Un jour à la fois.</p><a href="#programme">RETOUR AU PROGRAMME ↑</a></footer><div id="status" class="toast" role="status" aria-live="polite" hidden></div><dialog id="confirm-dialog"><form method="dialog"><p class="eyebrow orange">TON SUIVI</p><h2 id="confirm-title"></h2><p id="confirm-message"></p><div class="dialog-actions"><button value="cancel" class="button outline">Annuler</button><button value="confirm" class="button dark" id="confirm-action">Confirmer</button></div></form></dialog><dialog id="exercise-guide" class="guide-dialog" aria-labelledby="guide-title"><div class="modal-heading"><div><p class="eyebrow orange">LE BON MOUVEMENT</p><h2 id="guide-title"></h2><p id="guide-meta" class="muted"></p></div><button type="button" id="close-guide" class="icon-button" aria-label="Fermer la fiche">×</button></div><div id="guide-photos" class="guide-photos"></div><h3>Comment faire</h3><ol id="guide-steps"></ol><p id="guide-note" class="guide-note"></p><a id="guide-source" target="_blank" rel="noopener noreferrer">Voir la source des démonstrations ↗</a></dialog>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f7f2">
+<meta name="description" content="OTMABINKS Training Club — ta séance, ton planning et tes progrès.">
+<title>OTMABINKS — Training Club</title>
+<link rel="stylesheet" href="style.css">
+<script src="program.js" defer></script>
+<script src="guides.js" defer></script>
+<script src="app.js" defer></script>
+<script src="navigation.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#workout-title">Aller à la séance</a>
+<div class="app-shell">
+  <header class="app-header">
+    <a class="brand" href="#seance" data-tab="seance" aria-label="Accueil OTMABINKS">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5 29 17 8h9L14 29zm14 0L31 8h5L24 29z" fill="currentColor"/></svg>
+      <span>OTMABINKS<small>TRAINING CLUB</small></span>
+    </a>
+    <span class="header-small">MON ENTRAÎNEMENT</span>
+    <button id="header-profile" type="button" class="avatar" data-tab="carnet" aria-label="Ouvrir le carnet">O.</button>
+  </header>
+
+  <nav class="app-tabs" aria-label="Navigation principale">
+    <button type="button" data-tab="seance" class="tab active" aria-current="page"><span class="tab-icon">◉</span><span>Séance</span></button>
+    <button type="button" data-tab="planning" class="tab"><span class="tab-icon">▦</span><span>Planning</span></button>
+    <button type="button" data-tab="progres" class="tab"><span class="tab-icon">↗</span><span>Progrès</span></button>
+    <button type="button" data-tab="carnet" class="tab"><span class="tab-icon">☷</span><span>Carnet</span></button>
+  </nav>
+
+  <main id="app-main">
+    <section id="screen-seance" class="screen screen-active" aria-labelledby="home-title">
+      <div class="home-head">
+        <p class="eyebrow orange">TON RENDEZ-VOUS AVEC TOI-MÊME</p>
+        <div class="home-title-row"><div><h1 id="home-title">Ta séance.</h1><p id="home-date" class="muted"></p></div><button id="back-to-today" type="button" class="chip-button" hidden>Aujourd'hui ↺</button></div>
+        <div class="quick-stats">
+          <button type="button" class="mini-stat" data-tab="progres"><span class="mini-stat-icon">⚡</span><strong id="home-streak">0 jour</strong><span>Série actuelle</span></button>
+          <button type="button" class="mini-stat" data-tab="planning"><span class="mini-stat-icon">✓</span><strong id="home-week-done">0 / 6</strong><span>Cette semaine</span></button>
+        </div>
+      </div>
+      <section class="workout" aria-labelledby="workout-title">
+        <div class="workout-heading">
+          <div><p class="eyebrow orange" id="workout-tag"></p><h2 id="workout-title"></h2><p id="workout-description" class="muted"></p></div>
+          <span class="duration" id="workout-duration"></span>
+        </div>
+        <div class="workout-toolbar">
+          <span>EXERCICES</span>
+          <button id="change-day" type="button" data-tab="planning">Changer de jour →</button>
+        </div>
+        <div class="list-heading" aria-hidden="true"><span>MOUVEMENTS</span><span>SÉRIES</span></div>
+        <div id="exercises"></div>
+        <button id="add-exercise" class="button outline add-exercise" type="button">+ Ajouter un exercice</button>
+        <div id="session-progress" class="session-progress"><div><span id="session-count"></span><span id="session-percent"></span></div><progress id="exercise-progress" max="100" value="0" aria-label="Progression de la séance"></progress></div>
+        <div class="session-actions"><button class="button dark" type="button" id="complete-session">Terminer la séance ↗</button></div>
+        <p id="session-date-hint" class="date-hint"></p>
+      </section>
+      <details class="prep-card compact-prep"><summary>Repères de la séance <span>+</span></summary>
+        <div class="prep-row"><span>Échauffement</span><strong>5 min</strong></div>
+        <div class="prep-row"><span>Repos entre séries</span><strong>90–120 s</strong></div>
+        <div class="prep-row"><span>Répétitions en réserve</span><strong>1–3</strong></div>
+        <p>Commence avec moins de séries si la reprise est difficile. Vérifie la stabilité des attaches et la trajectoire des câbles sur ta MARCY.</p>
+      </details>
+    </section>
+
+    <section id="screen-planning" class="screen" hidden aria-labelledby="program-title">
+      <div class="screen-head"><p class="eyebrow orange">LE PLAN DE MATCH</p><h1 id="program-title">Ton planning.</h1><p class="muted">Choisis un jour pour voir et cocher ses exercices.</p></div>
+      <section id="programme" class="program">
+        <div class="section-top"><h2>Cette semaine</h2><div class="week-switch"><button id="prev-week" class="icon-button" aria-label="Semaine précédente">←</button><div><span id="week-label"></span><button id="this-week" type="button" class="text-button" hidden>Cette semaine</button></div><button id="next-week" class="icon-button" aria-label="Semaine suivante">→</button></div></div>
+        <nav class="days" id="days" aria-label="Choisir le jour d'entraînement"></nav>
+        <div id="week-cards" class="week-cards" aria-label="Séances prévues"></div>
+        <section class="weekly-card"><div class="card-heading"><p class="eyebrow quiet">AVANCEMENT DE LA SEMAINE</p></div><div class="weekly-number"><strong id="completed-count">0</strong><span>/ 6</span></div><p id="week-message">Chaque séance fait la différence.</p><div id="week-marks" class="week-marks" aria-label="Séances terminées"></div><span class="caption">SÉANCES TERMINÉES CETTE SEMAINE</span></section>
+      </section>
+    </section>
+
+    <section id="screen-progres" class="screen" hidden aria-labelledby="progress-title">
+      <div class="screen-head"><p class="eyebrow orange">TA RÉGULARITÉ</p><h1 id="progress-title">Tes progrès.</h1><p class="muted">Les entraînements comptent. Le repos aussi.</p></div>
+      <section id="regularite" class="streak-section" aria-labelledby="streak-title">
+        <div class="streak-main"><p class="eyebrow orange">SÉRIE ACTUELLE</p><div class="streak-number"><strong id="streak-count">0</strong><span>jours de régularité<br><small id="streak-best">Record : 0 jours</small></span></div><h2 id="streak-title">Ta série continue.</h2><p id="streak-message"></p></div>
+        <div class="freeze-panel"><p class="eyebrow quiet">PROTECTIONS MENSUELLES</p><div id="freezes" class="freezes" aria-hidden="true"></div><strong id="freeze-count">3 / 3 gels disponibles</strong><p id="freeze-month"></p>
+          <details><summary>Comment fonctionnent les gels ? <span>+</span></summary><p>Une séance validée prolonge ta série. Un jour d’entraînement manqué utilise automatiquement un gel, dès le lendemain. Le gel protège ta série sans ajouter de jour. Après trois gels dans le même mois, le prochain jour manqué casse la série. Trois nouveaux gels arrivent le 1er de chaque mois, sans cumul. Le dimanche compte comme repos dans une série active, sans gel. Le suivi démarre à ta première séance validée.</p></details>
+        </div>
+        <div class="history-panel"><p class="eyebrow quiet">TES 28 DERNIERS JOURS</p><div id="streak-history" class="streak-history"></div><p class="history-legend"><span>● Séance</span><span>❄ Gel</span><span>○ Repos</span><span>× Manqué</span></p></div>
+      </section>
+    </section>
+
+    <section id="screen-carnet" class="screen" hidden aria-labelledby="journal-title">
+      <div class="screen-head"><p class="eyebrow orange">TON ESPACE</p><h1 id="journal-title">Ton carnet.</h1><p class="muted">Charges, sensations, progrès et ajustements.</p></div>
+      <section class="journal" id="journal">
+        <div class="journal-paper"><label for="notes">NOTES PERSONNELLES <span>↗</span></label><textarea id="notes" maxlength="20000" placeholder="Aujourd'hui, j'ai…&#10;Charges, sensations, performances."></textarea><div class="journal-bottom"><span>Stockage local sur cet appareil.</span><span id="note-count">0 / 20 000</span></div></div>
+        <p class="saved-status" id="save-state">Enregistré sur cet appareil</p>
+      </section>
+      <section class="data-section"><h2>Sauvegarde</h2><p>Ta progression est stockée dans ce navigateur, pas automatiquement synchronisée entre appareils. Exporte régulièrement pour éviter toute perte.</p><div class="data-actions"><button id="export" class="button outline" type="button">↓ Exporter mon suivi</button><button id="import" class="button outline" type="button">↑ Importer un suivi</button><input id="import-file" type="file" accept="application/json,.json" hidden></div></section>
+    </section>
+  </main>
+</div>
+<div id="status" class="toast" role="status" aria-live="polite" hidden></div><dialog id="confirm-dialog"><form method="dialog"><p class="eyebrow orange">TON SUIVI</p><h2 id="confirm-title"></h2><p id="confirm-message"></p><div class="dialog-actions"><button value="cancel" class="button outline">Annuler</button><button value="confirm" class="button dark" id="confirm-action">Confirmer</button></div></form></dialog><dialog id="exercise-guide" class="guide-dialog" aria-labelledby="guide-title"><div class="modal-heading"><div><p class="eyebrow orange">LE BON MOUVEMENT</p><h2 id="guide-title"></h2><p id="guide-meta" class="muted"></p></div><button type="button" id="close-guide" class="icon-button" aria-label="Fermer la fiche">×</button></div><div id="guide-photos" class="guide-photos"></div><h3>Comment faire</h3><ol id="guide-steps"></ol><p id="guide-note" class="guide-note"></p><a id="guide-source" target="_blank" rel="noopener noreferrer">Voir la source des démonstrations ↗</a></dialog>
 <dialog id="add-dialog" class="add-dialog" aria-labelledby="add-title"><form id="add-form"><div class="modal-heading"><div><p class="eyebrow orange">FAIS ÉVOLUER TON PROGRAMME</p><h2 id="add-title">Ajouter un exercice</h2></div><button type="button" id="close-add" class="icon-button" aria-label="Fermer l’ajout">×</button></div><p id="add-day-label" class="muted"></p><label for="guide-choice">Choisis un mouvement</label><select id="guide-choice" required></select><p id="chosen-guide-info" class="muted"></p><button id="preview-guide" class="text-button" type="button">Voir les photos et l’explication ↗</button><div id="custom-guide-fields" hidden><label for="custom-name">Nom de l’exercice</label><input id="custom-name" maxlength="120" data-required><label for="custom-equipment">Matériel</label><input id="custom-equipment" maxlength="160"><label for="custom-steps">Explication (une étape par ligne)</label><textarea id="custom-steps" maxlength="6400" data-required></textarea><label for="custom-photo-1">Lien HTTPS de la première photo</label><input id="custom-photo-1" type="url" placeholder="https://…/photo.jpg" maxlength="2048" data-required><label for="custom-photo-2">Deuxième photo (facultatif)</label><input id="custom-photo-2" type="url" placeholder="https://…/photo.jpg" maxlength="2048"><p class="muted">Utilise des liens directs vers des photos que tu as le droit d’utiliser.</p></div><label for="extra-sets">Séries × répétitions, ou durée</label><input id="extra-sets" maxlength="80" placeholder="Ex. 3 × 10 ou 10 min" required><p class="muted">Ajouté à ce jour chaque semaine à partir de la date affichée. Les séances passées restent intactes.</p><p id="add-error" role="alert"></p><div class="dialog-actions"><button id="cancel-add" type="button" class="button outline">Annuler</button><button type="submit" class="button dark">Ajouter au programme</button></div></form></dialog></body></html>
+
+</body></html>
