@@ -94,7 +94,35 @@ if(typeof document!=='undefined'){
     const saved=localStorage.getItem(KEY),legacy=localStorage.getItem(LEGACY_KEY);
     if(saved)state=validate(JSON.parse(saved));
     else if(legacy){state=validate(JSON.parse(legacy));save();message('Ton ancien suivi a été repris dans la semaine actuelle.');}
-  }catch{blocked=true;message('La sauvegarde existante est inaccessible ou illisible. Elle est préservée. Exporte tes nouvelles données avant de quitter.',true);}
+  }catch(error){
+    // Never overwrite a saved record that failed validation.
+    // A previous version may have exercise indexes that no longer exist after a program edit.
+    try{
+      const raw=localStorage.getItem(KEY);
+      const previous=raw&&JSON.parse(raw);
+      if(previous&&previous.version===2&&previous.weeks&&typeof previous.weeks==='object'&&typeof previous.notes==='string'){
+        const backupKey=KEY+'-backup-before-repair';
+        if(!localStorage.getItem(backupKey))localStorage.setItem(backupKey,raw);
+        const cleaned={version:2,weeks:{},notes:previous.notes.slice(0,20000),extras:[]};
+        try{cleaned.extras=Fitness.validateExtras(previous.extras||[]);}catch{}
+        for(const [weekKey,record] of Object.entries(previous.weeks)){
+          if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(weekKey)||!record||typeof record!=='object')continue;
+          const checks={},complete={};
+          for(const [k,v] of Object.entries(record.checks||{})){
+            if(v!==true&&v!==false)continue;
+            const match=/^([0-6]):(\\d{1,2})$/.exec(k);
+            const extra=/^([0-5]):x_([a-zA-Z0-9_-]+)$/.exec(k);
+            if(match&&program[+match[1]]?.items[+match[2]]||extra&&cleaned.extras.some(e=>e.day===+extra[1]&&e.id===extra[2]))checks[k]=v;
+          }
+          for(const [k,v] of Object.entries(record.complete||{}))if(/^[0-6]$/.test(k)&&typeof v==='boolean')complete[k]=v;
+          cleaned.weeks[weekKey]={checks,complete};
+        }
+        state=validate(cleaned);
+        save();
+        message('Ancien suivi récupéré. Une copie de sécurité a été conservée dans ce navigateur. Exporte ton suivi.',true);
+      }else{blocked=true;message('Sauvegarde illisible : tes anciennes données sont préservées. Exporte les nouvelles données avant de quitter.',true);}
+    }catch{blocked=true;message('Sauvegarde inaccessible. Tes anciennes données sont préservées. Exporte ton suivi.',true);}
+  }
   const currentWeek=()=>state.weeks[week]||emptyWeek();
   function writableWeek(){return state.weeks[week]||=(emptyWeek());}
   function confirmAction(title,text,action){
