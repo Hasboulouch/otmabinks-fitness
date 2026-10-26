@@ -16,7 +16,8 @@ const Fitness = (() => {
     for(const [key,value] of Object.entries(data.checks)){
       const match=/^([0-6]):(\d{1,2})$/.exec(key);
       const extra=/^([0-5]):x_([a-zA-Z0-9_-]+)$/.exec(key);
-      const known=match&&program[+match[1]].items[+match[2]] || extra&&extras.some(e=>e.day===+extra[1]&&e.id===extra[2]);
+      const stable=/^([0-5]):(v3_[a-zA-Z0-9_-]+)$/.exec(key);
+      const known=match&&program[+match[1]].items[+match[2]] || extra&&extras.some(e=>e.day===+extra[1]&&e.id===extra[2]) || stable&&program[+stable[1]].items.some(e=>e[4]===stable[2]);
       if(!known||typeof value!=='boolean')throw Error('Une case du suivi est invalide.');
       week.checks[key]=value;
     }
@@ -112,7 +113,8 @@ if(typeof document!=='undefined'){
             if(v!==true&&v!==false)continue;
             const match=/^([0-6]):(\d{1,2})$/.exec(k);
             const extra=/^([0-5]):x_([a-zA-Z0-9_-]+)$/.exec(k);
-            if(match&&program[+match[1]]?.items[+match[2]]||extra&&cleaned.extras.some(e=>e.day===+extra[1]&&e.id===extra[2]))checks[k]=v;
+            const stable=/^([0-5]):(v3_[a-zA-Z0-9_-]+)$/.exec(k);
+            if(match&&program[+match[1]]?.items[+match[2]]||extra&&cleaned.extras.some(e=>e.day===+extra[1]&&e.id===extra[2])||stable&&program[+stable[1]]?.items.some(e=>e[4]===stable[2]))checks[k]=v;
           }
           for(const [k,v] of Object.entries(record.complete||{}))if(/^[0-6]$/.test(k)&&typeof v==='boolean')complete[k]=v;
           cleaned.weeks[weekKey]={checks,complete};
