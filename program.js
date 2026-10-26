@@ -41,10 +41,16 @@ const PROGRAM = [
             "Garde le coude aussi fixe que possible puis tends-le sans cambrer.",
             "Redescends lentement. Arrête si le câble frotte ou tire sur l’épaule."
           ],
-          "images": [],
-          "captions": [],
-          "note": "Alternative si ta machine ne permet pas le trajet: refais l’extension triceps à la poulie haute.",
-          "source": ""
+          "images": [
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Overhead_Extension_with_Rope/0.jpg",
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Overhead_Extension_with_Rope/1.jpg"
+          ],
+          "captions": [
+            "Position initiale (illustration)",
+            "Position finale (illustration)"
+          ],
+          "note": "Alternative si ta machine ne permet pas le trajet: refais l’extension triceps à la poulie haute. Démonstration avec une corde : utilise uniquement ta poignée et adapte la position; ne reproduis pas la prise de la photo.",
+          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Overhead_Extension_with_Rope"
         },
         "v3_lun_overhead"
       ]
@@ -91,10 +97,16 @@ const PROGRAM = [
             "Garde les coudes près du corps et fléchis les bras sans balancer le buste.",
             "Redescends lentement jusqu’à une extension confortable des coudes."
           ],
-          "images": [],
-          "captions": [],
-          "note": "La MARCY illustre ce mouvement comme « Seated Bicep Curl ». Utilise une charge modérée et une trajectoire fluide.",
-          "source": ""
+          "images": [
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl/0.jpg",
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl/1.jpg"
+          ],
+          "captions": [
+            "Position initiale (illustration)",
+            "Position finale (illustration)"
+          ],
+          "note": "La MARCY illustre ce mouvement comme « Seated Bicep Curl ». Utilise une charge modérée et une trajectoire fluide. La démonstration est debout : sur ta MARCY, le principe de flexion du coude reste identique, mais l'installation assise diffère.",
+          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl"
         },
         "v3_mar_seated"
       ]
@@ -134,10 +146,16 @@ const PROGRAM = [
             "Fléchis le thorax vers le bassin en contractant les abdominaux, sans tirer avec les bras.",
             "Remonte lentement en contrôlant la colonne."
           ],
-          "images": [],
-          "captions": [],
-          "note": "Image non disponible; utilise l’illustration « High Pulley AB Crunch » sur ta MARCY comme référence.",
-          "source": ""
+          "images": [
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Crunch/0.jpg",
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Crunch/1.jpg"
+          ],
+          "captions": [
+            "Position initiale (illustration)",
+            "Position finale (illustration)"
+          ],
+          "note": "Image non disponible; utilise l’illustration « High Pulley AB Crunch » sur ta MARCY comme référence. Démonstration de crunch à la poulie, la poignée illustrée peut différer de ton accessoire.",
+          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Crunch"
         },
         "v3_mer_abs"
       ],
@@ -191,10 +209,16 @@ const PROGRAM = [
             "Garde le coude aussi fixe que possible puis tends-le sans cambrer.",
             "Redescends lentement. Arrête si le câble frotte ou tire sur l’épaule."
           ],
-          "images": [],
-          "captions": [],
-          "note": "Alternative si ta machine ne permet pas le trajet: refais l’extension triceps à la poulie haute.",
-          "source": ""
+          "images": [
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Overhead_Extension_with_Rope/0.jpg",
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Overhead_Extension_with_Rope/1.jpg"
+          ],
+          "captions": [
+            "Position initiale (illustration)",
+            "Position finale (illustration)"
+          ],
+          "note": "Alternative si ta machine ne permet pas le trajet: refais l’extension triceps à la poulie haute. Démonstration avec une corde : utilise uniquement ta poignée et adapte la position; ne reproduis pas la prise de la photo.",
+          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Overhead_Extension_with_Rope"
         },
         "v3_jeu_overhead"
       ],
@@ -241,10 +265,16 @@ const PROGRAM = [
             "Garde les coudes près du corps et fléchis les bras sans balancer le buste.",
             "Redescends lentement jusqu’à une extension confortable des coudes."
           ],
-          "images": [],
-          "captions": [],
-          "note": "La MARCY illustre ce mouvement comme « Seated Bicep Curl ». Utilise une charge modérée et une trajectoire fluide.",
-          "source": ""
+          "images": [
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl/0.jpg",
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl/1.jpg"
+          ],
+          "captions": [
+            "Position initiale (illustration)",
+            "Position finale (illustration)"
+          ],
+          "note": "La MARCY illustre ce mouvement comme « Seated Bicep Curl ». Utilise une charge modérée et une trajectoire fluide. La démonstration est debout : sur ta MARCY, le principe de flexion du coude reste identique, mais l'installation assise diffère.",
+          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl"
         },
         "v3_ven_seated"
       ],
@@ -284,10 +314,16 @@ const PROGRAM = [
             "Tiens un appui stable et fléchis le genou pour rapprocher le talon de la fesse sans balancer le bassin.",
             "Reviens lentement sans laisser la pile retomber."
           ],
-          "images": [],
-          "captions": [],
-          "note": "Référence: illustration « Leg Curl » sur le carter MARCY. Vérifie l’attache et la trajectoire avant chaque série.",
-          "source": ""
+          "images": [
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Leg_Curl/0.jpg",
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Leg_Curl/1.jpg"
+          ],
+          "captions": [
+            "Position initiale (illustration)",
+            "Position finale (illustration)"
+          ],
+          "note": "Référence: illustration « Leg Curl » sur le carter MARCY. Vérifie l’attache et la trajectoire avant chaque série. Illustration d'un leg curl debout : la résistance provient ici d'une autre machine. Sur ta MARCY, utilise la sangle de cheville adaptée.",
+          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Leg_Curl"
         },
         "v3_sam_curl"
       ],
@@ -303,10 +339,16 @@ const PROGRAM = [
             "Fléchis les genoux et les hanches en gardant le tronc gainé et les talons au sol.",
             "Pousse dans les pieds pour remonter; pas d’à-coups ni de traction qui déstabilise la machine."
           ],
-          "images": [],
-          "captions": [],
-          "note": "Si la machine ne permet pas une trajectoire sûre, remplace par un split squat contrôlé, 3 × 8–12 par jambe.",
-          "source": ""
+          "images": [
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Bodyweight_Squat/0.jpg",
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Bodyweight_Squat/1.jpg"
+          ],
+          "captions": [
+            "Position initiale (illustration)",
+            "Position finale (illustration)"
+          ],
+          "note": "Si la machine ne permet pas une trajectoire sûre, remplace par un split squat contrôlé, 3 × 8–12 par jambe. Illustration du mouvement de squat uniquement : elle ne montre pas la traction à la poulie basse MARCY.",
+          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Bodyweight_Squat"
         },
         "v3_sam_squat"
       ],
@@ -329,10 +371,16 @@ const PROGRAM = [
             "Garde le bras légèrement fléchi et dirige le coude vers l’extérieur/arrière, sans tourner le buste.",
             "Ramène lentement en gardant l’épaule basse."
           ],
-          "images": [],
-          "captions": [],
-          "note": "Fais ce mouvement seulement si la trajectoire est fluide et sans frottement; sinon remplace par l’oiseau sans charge ou avec une petite charge.",
-          "source": ""
+          "images": [
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Rear_Delt_Fly/0.jpg",
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Rear_Delt_Fly/1.jpg"
+          ],
+          "captions": [
+            "Position initiale (illustration)",
+            "Position finale (illustration)"
+          ],
+          "note": "Fais ce mouvement seulement si la trajectoire est fluide et sans frottement; sinon remplace par l’oiseau sans charge ou avec une petite charge. La photo illustre un reverse fly à la poulie avec une configuration différente; pour ton tirage unilatéral, adapte le trajet du câble et réduis la charge.",
+          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Rear_Delt_Fly"
         },
         "v3_sam_rear"
       ]
