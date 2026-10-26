@@ -6,11 +6,11 @@
 <meta name="theme-color" content="#f7f7f2">
 <meta name="description" content="OTMABINKS Training Club — ta séance, ton planning et tes progrès.">
 <title>OTMABINKS — Training Club</title>
-<link rel="stylesheet" href="style.css">
-<script src="program.js" defer></script>
-<script src="guides.js" defer></script>
-<script src="app.js" defer></script>
-<script src="navigation.js" defer></script>
+<link rel="stylesheet" href="style.css?v=20261026g2">
+<script src="program.js?v=20261026g2" defer></script>
+<script src="guides.js?v=20261026g2" defer></script>
+<script src="app.js?v=20261026g2" defer></script>
+<script src="navigation.js?v=20261026g2" defer></script>
 </head>
 <body>
 <a class="skip" href="#workout-title">Aller à la séance</a>
@@ -96,7 +96,7 @@
     </section>
   </main>
 </div>
-<div id="status" class="toast" role="status" aria-live="polite" hidden></div><dialog id="confirm-dialog"><form method="dialog"><p class="eyebrow orange">TON SUIVI</p><h2 id="confirm-title"></h2><p id="confirm-message"></p><div class="dialog-actions"><button value="cancel" class="button outline">Annuler</button><button value="confirm" class="button dark" id="confirm-action">Confirmer</button></div></form></dialog><dialog id="exercise-guide" class="guide-dialog" aria-labelledby="guide-title"><div class="modal-heading"><div><p class="eyebrow orange">LE BON MOUVEMENT</p><h2 id="guide-title"></h2><p id="guide-meta" class="muted"></p></div><button type="button" id="close-guide" class="icon-button" aria-label="Fermer la fiche">×</button></div><div id="guide-photos" class="guide-photos"></div><h3>Comment faire</h3><ol id="guide-steps"></ol><p id="guide-note" class="guide-note"></p><a id="guide-source" target="_blank" rel="noopener noreferrer">Voir la source des démonstrations ↗</a></dialog>
+<div id="status" class="toast" role="status" aria-live="polite" hidden></div><dialog id="confirm-dialog"><form method="dialog"><p class="eyebrow orange">TON SUIVI</p><h2 id="confirm-title"></h2><p id="confirm-message"></p><div class="dialog-actions"><button value="cancel" class="button outline">Annuler</button><button value="confirm" class="button dark" id="confirm-action">Confirmer</button></div></form></dialog><section id="exercise-guide" class="guide-dialog" role="dialog" aria-modal="true" aria-labelledby="guide-title" hidden><div class="modal-heading"><div><p class="eyebrow orange">LE BON MOUVEMENT</p><h2 id="guide-title"></h2><p id="guide-meta" class="muted"></p></div><button type="button" id="close-guide" class="icon-button" aria-label="Fermer la fiche">×</button></div><div id="guide-photos" class="guide-photos"></div><h3>Comment faire</h3><ol id="guide-steps"></ol><p id="guide-note" class="guide-note"></p><a id="guide-source" target="_blank" rel="noopener noreferrer">Voir la source des démonstrations ↗</a></section>
 <dialog id="add-dialog" class="add-dialog" aria-labelledby="add-title"><form id="add-form"><div class="modal-heading"><div><p class="eyebrow orange">FAIS ÉVOLUER TON PROGRAMME</p><h2 id="add-title">Ajouter un exercice</h2></div><button type="button" id="close-add" class="icon-button" aria-label="Fermer l’ajout">×</button></div><p id="add-day-label" class="muted"></p><label for="guide-choice">Choisis un mouvement</label><select id="guide-choice" required></select><p id="chosen-guide-info" class="muted"></p><button id="preview-guide" class="text-button" type="button">Voir les photos et l’explication ↗</button><div id="custom-guide-fields" hidden><label for="custom-name">Nom de l’exercice</label><input id="custom-name" maxlength="120" data-required><label for="custom-equipment">Matériel</label><input id="custom-equipment" maxlength="160"><label for="custom-steps">Explication (une étape par ligne)</label><textarea id="custom-steps" maxlength="6400" data-required></textarea><label for="custom-photo-1">Lien HTTPS de la première photo</label><input id="custom-photo-1" type="url" placeholder="https://…/photo.jpg" maxlength="2048" data-required><label for="custom-photo-2">Deuxième photo (facultatif)</label><input id="custom-photo-2" type="url" placeholder="https://…/photo.jpg" maxlength="2048"><p class="muted">Utilise des liens directs vers des photos que tu as le droit d’utiliser.</p></div><label for="extra-sets">Séries × répétitions, ou durée</label><input id="extra-sets" maxlength="80" placeholder="Ex. 3 × 10 ou 10 min" required><p class="muted">Ajouté à ce jour chaque semaine à partir de la date affichée. Les séances passées restent intactes.</p><p id="add-error" role="alert"></p><div class="dialog-actions"><button id="cancel-add" type="button" class="button outline">Annuler</button><button type="submit" class="button dark">Ajouter au programme</button></div></form></dialog></body></html>
 
 </body></html>
