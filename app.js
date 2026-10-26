@@ -169,14 +169,46 @@ if(typeof document!=='undefined'){
     $('add-exercise').disabled=selected<today||active===6||(state.extras||[]).length>=100;
     if(blocked)$('save-state').textContent='Sauvegarde indisponible. Pense à exporter.';
   }
-  function openGuide(item){
-    const g=Fitness.guideFor(item);if(!g){message('Fiche introuvable pour ce mouvement.');return;}
-    $('guide-title').textContent=item[0];$('guide-meta').textContent=item[1]+' · '+item[2];$('guide-photos').replaceChildren();
-    g.images.forEach((src,i)=>{const figure=el('figure'),img=el('img');img.src=src;img.alt=`${g.name} — ${g.captions?.[i]||`position ${i+1}`}`;img.referrerPolicy='no-referrer';img.decoding='async';img.onerror=()=>{img.hidden=true;figure.prepend(el('p','Photo indisponible. Vérifie ta connexion ou consulte la source.','photo-error'));};figure.append(img,el('figcaption',g.captions?.[i]||`Position ${i+1}`));$('guide-photos').append(figure);});
-    $('guide-steps').replaceChildren(...g.steps.map(step=>el('li',step)));$('guide-note').textContent=g.note||'Reste sur une amplitude confortable et un mouvement contrôlé.';
-    $('guide-source').hidden=!g.source;$('guide-source').href=g.source||'#';$('exercise-guide').showModal();
+  let previousGuideFocus=null;
+  function closeGuide(){
+    const panel=$('exercise-guide');
+    if(panel.hidden)return;
+    panel.hidden=true;
+    document.body.classList.remove('guide-open');
+    if(previousGuideFocus&&previousGuideFocus.isConnected)previousGuideFocus.focus({preventScroll:true});
+    previousGuideFocus=null;
   }
-  $('close-guide').onclick=()=>$('exercise-guide').close();
+  function openGuide(item){
+    const g=Fitness.guideFor(item)||{name:item[0],images:[],captions:[],steps:['Aucune fiche détaillée n’est encore disponible pour cet exercice.'],note:'Vérifie les consignes adaptées à ta MARCY avant de commencer.',source:''};
+    const panel=$('exercise-guide');
+    previousGuideFocus=document.activeElement;
+    $('guide-title').textContent=item[0];
+    $('guide-meta').textContent=item[1]+' · '+item[2];
+    const gallery=$('guide-photos');gallery.replaceChildren();
+    if(Array.isArray(g.images)&&g.images.length){
+      g.images.forEach((src,i)=>{
+        const figure=el('figure'),img=el('img');
+        img.src=src;
+        img.alt=`${g.name||item[0]} — ${g.captions?.[i]||`position ${i+1}`}`;
+        img.loading='lazy';img.decoding='async';img.referrerPolicy='no-referrer';
+        img.onerror=()=>{img.hidden=true;if(!figure.querySelector('.photo-error'))figure.prepend(el('p','Photo indisponible : consulte les étapes ci-dessous.','photo-error'));};
+        figure.append(img,el('figcaption',g.captions?.[i]||`Position ${i+1}`));
+        gallery.append(figure);
+      });
+    }else gallery.append(el('p','Aucune photographie disponible. Lis les instructions ci-dessous.','photo-error'));
+    $('guide-steps').replaceChildren(...(Array.isArray(g.steps)?g.steps:[]).map(step=>el('li',step)));
+    $('guide-note').textContent=g.note||'Fais le mouvement de façon contrôlée avec une charge adaptée.';
+    $('guide-source').hidden=!g.source;$('guide-source').href=g.source||'#';
+    // A full-screen view avoids showModal() incompatibilities in embedded mobile browsers.
+    const add=$('add-dialog');
+    if(add&&add.open)add.close();
+    panel.hidden=false;
+    document.body.classList.add('guide-open');
+    panel.scrollTop=0;
+    $('close-guide').focus({preventScroll:true});
+  }
+  $('close-guide').onclick=closeGuide;
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!$('exercise-guide').hidden){event.preventDefault();closeGuide();}});
   const choose=$('guide-choice');Fitness.guides.forEach(g=>{const option=el('option',g.name);option.value=g.id;choose.append(option);});const customOption=el('option','Autre exercice : créer sa fiche');customOption.value='custom';choose.append(customOption);
   function selection(){const custom=choose.value==='custom';$('custom-guide-fields').hidden=!custom;for(const input of $('custom-guide-fields').querySelectorAll('input,textarea')){input.disabled=!custom;input.required=custom&&input.hasAttribute('data-required');}const g=Fitness.guides.find(g=>g.id===choose.value);$('chosen-guide-info').textContent=custom?'Pour ce nouveau mouvement, ajoute une explication et au moins une photo.':g?`${g.equipment} · ${g.images.length} photo(s) et une explication incluses.`:'';$('preview-guide').hidden=!g;}
   choose.onchange=selection;
