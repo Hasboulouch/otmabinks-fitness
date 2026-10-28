@@ -86,29 +86,11 @@ const PROGRAM = [
         "v3_mar_standing"
       ],
       [
-        "Curl biceps assis",
-        "Poulie basse + barre, assis",
-        "3 × 10–12",
-        {
-          "name": "Curl biceps assis",
-          "equipment": "Poulie basse MARCY et barre courbée",
-          "steps": [
-            "Assieds-toi sur le siège avec les pieds stables et la barre reliée à la poulie basse.",
-            "Garde les coudes près du corps et fléchis les bras sans balancer le buste.",
-            "Redescends lentement jusqu’à une extension confortable des coudes."
-          ],
-          "images": [
-            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl/0.jpg",
-            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl/1.jpg"
-          ],
-          "captions": [
-            "Position initiale (illustration)",
-            "Position finale (illustration)"
-          ],
-          "note": "La MARCY illustre ce mouvement comme « Seated Bicep Curl ». Utilise une charge modérée et une trajectoire fluide. La démonstration est debout : sur ta MARCY, le principe de flexion du coude reste identique, mais l'installation assise diffère.",
-          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl"
-        },
-        "v3_mar_seated"
+        "Curl inversé",
+        "Poulie basse + barre courbée, prise en pronation",
+        "3 × 10–15",
+        "g16",
+        "v3_mar_reverse"
       ]
     ]
   },
@@ -254,29 +236,11 @@ const PROGRAM = [
         "v3_ven_lat"
       ],
       [
-        "Curl biceps assis",
-        "Poulie basse + barre, assis",
-        "3 × 10–12",
-        {
-          "name": "Curl biceps assis",
-          "equipment": "Poulie basse MARCY et barre courbée",
-          "steps": [
-            "Assieds-toi sur le siège avec les pieds stables et la barre reliée à la poulie basse.",
-            "Garde les coudes près du corps et fléchis les bras sans balancer le buste.",
-            "Redescends lentement jusqu’à une extension confortable des coudes."
-          ],
-          "images": [
-            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl/0.jpg",
-            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl/1.jpg"
-          ],
-          "captions": [
-            "Position initiale (illustration)",
-            "Position finale (illustration)"
-          ],
-          "note": "La MARCY illustre ce mouvement comme « Seated Bicep Curl ». Utilise une charge modérée et une trajectoire fluide. La démonstration est debout : sur ta MARCY, le principe de flexion du coude reste identique, mais l'installation assise diffère.",
-          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl"
-        },
-        "v3_ven_seated"
+        "Curl inversé",
+        "Poulie basse + barre courbée, prise en pronation",
+        "3 × 10–15",
+        "g16",
+        "v3_ven_reverse"
       ],
       [
         "Curl unilatéral",
