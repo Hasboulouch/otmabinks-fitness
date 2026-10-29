@@ -6,7 +6,7 @@ const PROGRAM = [
     "tag": "PECS + TRICEPS",
     "title": "Pectoraux • Triceps",
     "time": "45–55 min",
-    "desc": "Deux exercices par muscle, trois séries chacun. 5 min d’échauffement, 90–120 s de repos.",
+    "desc": "Pectoraux + triceps : chest press et écarté à la poulie basse, puis deux extensions triceps. 90–120 s de repos.",
     "items": [
       [
         "Chest press assis",
@@ -16,11 +16,29 @@ const PROGRAM = [
         "v3_lun_press"
       ],
       [
-        "Papillon / pec fly",
-        "Bras papillon intégrés",
-        "3 × 10–15",
-        null,
-        "v3_lun_fly"
+        "Écarté pectoral unilatéral à la poulie basse",
+        "Poulie basse MARCY + poignée individuelle",
+        "3 × 10–15 / bras",
+        {
+          "name": "Écarté pectoral unilatéral à la poulie basse",
+          "equipment": "Poulie basse MARCY + poignée individuelle",
+          "steps": [
+            "Place-toi debout, légèrement devant la poulie basse, dos à la machine et pieds décalés pour rester stable.",
+            "Garde le coude légèrement fléchi. Ramène ton bras en diagonale vers le haut et le centre de ta poitrine, sans simplement lever le bras comme une élévation frontale.",
+            "Redescends lentement en gardant une tension continue, sans laisser le câble frotter contre le châssis. Change ensuite de bras."
+          ],
+          "images": [
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Low_Cable_Crossover/0.jpg",
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Low_Cable_Crossover/1.jpg"
+          ],
+          "captions": [
+            "Départ (illustration)",
+            "Fin du mouvement (illustration)"
+          ],
+          "note": "Les images montrent un crossover avec deux poulies : sur ta MARCY, fais le mouvement un bras à la fois. Garde une charge légère au départ, uniquement si la traction est fluide et la machine stable. Ne confonds pas avec l’élévation latérale (bras déplacé vers le côté).",
+          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Low_Cable_Crossover"
+        },
+        "v3_lun_cable_fly"
       ],
       [
         "Extension triceps",
@@ -156,7 +174,7 @@ const PROGRAM = [
     "tag": "PECS + TRICEPS",
     "title": "Pectoraux • Triceps",
     "time": "50–60 min",
-    "desc": "Deuxième séance pectoraux/triceps. Bonus de 2 séries pour les épaules latérales.",
+    "desc": "Pectoraux + triceps : écarté unilatéral à la poulie basse à la place du papillon. Bonus : 2 séries d’élévations latérales.",
     "items": [
       [
         "Chest press assis",
@@ -166,11 +184,29 @@ const PROGRAM = [
         "v3_jeu_press"
       ],
       [
-        "Papillon / pec fly",
-        "Bras papillon MARCY",
-        "3 × 12–15",
-        null,
-        "v3_jeu_fly"
+        "Écarté pectoral unilatéral à la poulie basse",
+        "Poulie basse MARCY + poignée individuelle",
+        "3 × 10–15 / bras",
+        {
+          "name": "Écarté pectoral unilatéral à la poulie basse",
+          "equipment": "Poulie basse MARCY + poignée individuelle",
+          "steps": [
+            "Place-toi debout, légèrement devant la poulie basse, dos à la machine et pieds décalés pour rester stable.",
+            "Garde le coude légèrement fléchi. Ramène ton bras en diagonale vers le haut et le centre de ta poitrine, sans simplement lever le bras comme une élévation frontale.",
+            "Redescends lentement en gardant une tension continue, sans laisser le câble frotter contre le châssis. Change ensuite de bras."
+          ],
+          "images": [
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Low_Cable_Crossover/0.jpg",
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Low_Cable_Crossover/1.jpg"
+          ],
+          "captions": [
+            "Départ (illustration)",
+            "Fin du mouvement (illustration)"
+          ],
+          "note": "Les images montrent un crossover avec deux poulies : sur ta MARCY, fais le mouvement un bras à la fois. Garde une charge légère au départ, uniquement si la traction est fluide et la machine stable. Ne confonds pas avec l’élévation latérale (bras déplacé vers le côté).",
+          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Low_Cable_Crossover"
+        },
+        "v3_jeu_cable_fly"
       ],
       [
         "Extension triceps",
