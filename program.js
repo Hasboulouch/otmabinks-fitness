@@ -5,8 +5,8 @@ const PROGRAM = [
     "name": "Lundi",
     "tag": "PECS + TRICEPS",
     "title": "Pectoraux • Triceps",
-    "time": "45–55 min",
-    "desc": "Pectoraux + triceps : chest press et écarté à la poulie basse, puis deux extensions triceps. 90–120 s de repos.",
+    "time": "45–60 min",
+    "desc": "Pectoraux : poussée lourde + écarté unilatéral. Triceps : extension à la poulie haute + extension au-dessus de la tête avec haltère. Repos 60–120 s.",
     "items": [
       [
         "Chest press assis",
@@ -48,29 +48,11 @@ const PROGRAM = [
         "v3_lun_pushdown"
       ],
       [
-        "Extension triceps au-dessus de la tête à la poulie",
-        "Poulie basse + poignée (si trajectoire confortable)",
+        "Extension triceps au-dessus de la tête avec haltère",
+        "Un haltère tenu à deux mains · triceps (longue portion)",
         "3 × 10–15",
-        {
-          "name": "Extension triceps au-dessus de la tête à la poulie",
-          "equipment": "Station MARCY",
-          "steps": [
-            "Tourne le dos à la poulie basse, saisis la poignée d’une main et place le bras au-dessus de la tête, coude fléchi.",
-            "Garde le coude aussi fixe que possible puis tends-le sans cambrer.",
-            "Redescends lentement. Arrête si le câble frotte ou tire sur l’épaule."
-          ],
-          "images": [
-            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Overhead_Extension_with_Rope/0.jpg",
-            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Overhead_Extension_with_Rope/1.jpg"
-          ],
-          "captions": [
-            "Position initiale (illustration)",
-            "Position finale (illustration)"
-          ],
-          "note": "Alternative si ta machine ne permet pas le trajet: refais l’extension triceps à la poulie haute. Démonstration avec une corde : utilise uniquement ta poignée et adapte la position; ne reproduis pas la prise de la photo.",
-          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Overhead_Extension_with_Rope"
-        },
-        "v3_lun_overhead"
+        "g14",
+        "v3_lun_db_overhead"
       ]
     ]
   },
@@ -79,8 +61,8 @@ const PROGRAM = [
     "name": "Mardi",
     "tag": "DOS + BICEPS",
     "title": "Dos • Biceps",
-    "time": "45–55 min",
-    "desc": "Deux tirages complémentaires et deux curls. Garde le tronc stable et les mouvements contrôlés.",
+    "time": "45–60 min",
+    "desc": "Dos : tirage vertical + rowing horizontal. Biceps : supination pour le biceps et prise neutre pour brachial / avant-bras. Coudes stables.",
     "items": [
       [
         "Tirage vertical",
@@ -97,18 +79,18 @@ const PROGRAM = [
         "v3_mar_row"
       ],
       [
-        "Curl biceps",
-        "Poulie basse + barre courbée",
-        "3 × 10–12",
-        null,
-        "v3_mar_standing"
+        "Curl biceps en supination avec haltères",
+        "Deux haltères · biceps, paumes tournées vers le haut",
+        "3 × 8–12",
+        "g27",
+        "v3_mar_db_supinated"
       ],
       [
-        "Curl inversé",
-        "Poulie basse + barre courbée, prise en pronation",
+        "Curl marteau avec haltères",
+        "Deux haltères · brachial et avant-bras",
         "3 × 10–15",
-        "g16",
-        "v3_mar_reverse"
+        "g9",
+        "v3_mar_db_hammer"
       ]
     ]
   },
@@ -174,7 +156,7 @@ const PROGRAM = [
     "tag": "PECS + TRICEPS",
     "title": "Pectoraux • Triceps",
     "time": "50–60 min",
-    "desc": "Pectoraux + triceps : écarté unilatéral à la poulie basse à la place du papillon. Bonus : 2 séries d’élévations latérales.",
+    "desc": "Deuxième séance pectoraux / triceps. Les 2 séries d'élévations latérales avec haltères restent en bonus pour les épaules.",
     "items": [
       [
         "Chest press assis",
@@ -216,36 +198,18 @@ const PROGRAM = [
         "v3_jeu_pushdown"
       ],
       [
-        "Extension triceps au-dessus de la tête à la poulie",
-        "Poulie basse + poignée (si trajectoire confortable)",
+        "Extension triceps au-dessus de la tête avec haltère",
+        "Un haltère tenu à deux mains · triceps (longue portion)",
         "3 × 10–15",
-        {
-          "name": "Extension triceps au-dessus de la tête à la poulie",
-          "equipment": "Station MARCY",
-          "steps": [
-            "Tourne le dos à la poulie basse, saisis la poignée d’une main et place le bras au-dessus de la tête, coude fléchi.",
-            "Garde le coude aussi fixe que possible puis tends-le sans cambrer.",
-            "Redescends lentement. Arrête si le câble frotte ou tire sur l’épaule."
-          ],
-          "images": [
-            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Overhead_Extension_with_Rope/0.jpg",
-            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Overhead_Extension_with_Rope/1.jpg"
-          ],
-          "captions": [
-            "Position initiale (illustration)",
-            "Position finale (illustration)"
-          ],
-          "note": "Alternative si ta machine ne permet pas le trajet: refais l’extension triceps à la poulie haute. Démonstration avec une corde : utilise uniquement ta poignée et adapte la position; ne reproduis pas la prise de la photo.",
-          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Overhead_Extension_with_Rope"
-        },
-        "v3_jeu_overhead"
+        "g14",
+        "v3_jeu_db_overhead"
       ],
       [
-        "Élévations latérales",
-        "Poulie basse + poignée individuelle",
+        "Élévations latérales avec haltères",
+        "Deux haltères légers · deltoïde moyen",
         "2 × 12–20",
-        null,
-        "v3_jeu_lateral"
+        "g26",
+        "v3_jeu_db_lateral"
       ]
     ]
   },
@@ -254,8 +218,8 @@ const PROGRAM = [
     "name": "Vendredi",
     "tag": "DOS + BICEPS",
     "title": "Dos • Biceps",
-    "time": "45–55 min",
-    "desc": "Deuxième stimulation du dos et des biceps. Varie l’ordre et contrôle la phase de retour.",
+    "time": "45–60 min",
+    "desc": "Dos : rowing + tirage vertical. Bras : curl concentration pour les biceps, puis marteau pour le brachial / brachio-radial. Pas besoin de banc couché.",
     "items": [
       [
         "Rowing assis",
@@ -272,18 +236,36 @@ const PROGRAM = [
         "v3_ven_lat"
       ],
       [
-        "Curl inversé",
-        "Poulie basse + barre courbée, prise en pronation",
-        "3 × 10–15",
-        "g16",
-        "v3_ven_reverse"
+        "Curl concentration avec haltère",
+        "Un haltère + chaise stable · biceps, bras appuyé",
+        "3 × 10–15 / bras",
+        {
+          "name": "Curl concentration avec haltère",
+          "equipment": "Un haltère + chaise stable · biceps",
+          "steps": [
+            "Assieds-toi sur une chaise stable, jambes ouvertes, avec l'arrière du bras légèrement appuyé contre l'intérieur de la cuisse.",
+            "Paume vers le haut, fléchis le coude sans balancer le corps ni avancer l'épaule.",
+            "Redescends lentement presque jusqu'à l'extension complète et change de bras."
+          ],
+          "note": "Ne presse pas excessivement le coude contre le genou. Utilise une charge contrôlée.",
+          "images": [
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Concentration_Curls/0.jpg",
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Concentration_Curls/1.jpg"
+          ],
+          "captions": [
+            "Départ du mouvement",
+            "Fin du mouvement"
+          ],
+          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Concentration_Curls"
+        },
+        "v3_ven_db_concentration"
       ],
       [
-        "Curl unilatéral",
-        "Poulie basse + poignée individuelle",
-        "3 × 10–12 / bras",
-        null,
-        "v3_ven_unilateral"
+        "Curl marteau avec haltères",
+        "Deux haltères · brachial et avant-bras",
+        "3 × 10–15",
+        "g9",
+        "v3_ven_db_hammer"
       ]
     ]
   },
@@ -292,20 +274,70 @@ const PROGRAM = [
     "name": "Samedi",
     "tag": "JAMBES + ÉPAULES",
     "title": "Jambes • Épaules",
-    "time": "50–60 min",
-    "desc": "Trois mouvements pour les jambes, deux pour les épaules. Mollets : option de 2 séries si tu as du temps.",
+    "time": "60–75 min",
+    "desc": "Jambes : squat + extension pour les quadriceps, roumain + leg curl pour les ischios. Épaules : développé + élévations latérales + oiseau. Repos 60–120 s.",
     "items": [
       [
+        "Squat goblet avec haltère",
+        "Un haltère · quadriceps et fessiers",
+        "3 × 8–12",
+        {
+          "name": "Squat goblet avec haltère",
+          "equipment": "Un haltère · quadriceps et fessiers",
+          "steps": [
+            "Tiens un haltère verticalement contre la poitrine, pieds environ à largeur d'épaules, abdomen contracté.",
+            "Fléchis hanches et genoux pour descendre aussi bas que confortable, talons au sol et genoux dans l'axe des pieds.",
+            "Remonte en poussant dans le sol sans rebondir. Si la charge devient trop facile, choisis une variante de fente avec haltères plutôt que de multiplier les répétitions sans effort."
+          ],
+          "note": "Aucun banc nécessaire. Ne cherche pas une profondeur douloureuse. Charge adaptée à ta maîtrise du mouvement.",
+          "images": [
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Goblet_Squat/0.jpg",
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Goblet_Squat/1.jpg"
+          ],
+          "captions": [
+            "Départ du mouvement",
+            "Fin du mouvement"
+          ],
+          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Goblet_Squat"
+        },
+        "v3_sam_db_goblet"
+      ],
+      [
+        "Soulevé de terre roumain avec haltères",
+        "Deux haltères · ischio-jambiers et fessiers",
+        "3 × 8–12",
+        {
+          "name": "Soulevé de terre roumain avec haltères",
+          "equipment": "Deux haltères · ischio-jambiers et fessiers",
+          "steps": [
+            "Debout, haltères devant les cuisses, pieds largeur hanches, genoux légèrement fléchis.",
+            "Recule les hanches en faisant glisser les haltères près des jambes, dos neutre et tibias presque verticaux.",
+            "Descends jusqu'à sentir les ischio-jambiers s'étirer sans arrondir le dos, puis avance les hanches pour te relever."
+          ],
+          "note": "Les photos illustrent un soulevé jambes semi-tendues, proche du roumain : garde les genoux souples et ne cherche pas à poser les haltères au sol. Commence léger.",
+          "images": [
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Stiff-Legged_Dumbbell_Deadlift/0.jpg",
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Stiff-Legged_Dumbbell_Deadlift/1.jpg"
+          ],
+          "captions": [
+            "Départ du mouvement",
+            "Fin du mouvement"
+          ],
+          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Stiff-Legged_Dumbbell_Deadlift"
+        },
+        "v3_sam_db_rdl"
+      ],
+      [
         "Leg extension",
-        "Module jambes MARCY",
-        "3 × 10–15",
-        null,
+        "Module jambes MARCY · quadriceps",
+        "2 × 12–15",
+        "g17",
         "v3_sam_extension"
       ],
       [
         "Leg curl debout à la poulie",
-        "Poulie basse + sangle de cheville",
-        "3 × 10–15 / jambe",
+        "Poulie basse + sangle de cheville · ischio-jambiers",
+        "2 × 10–15 / jambe",
         {
           "name": "Leg curl debout à la poulie",
           "equipment": "Station MARCY",
@@ -328,61 +360,43 @@ const PROGRAM = [
         "v3_sam_curl"
       ],
       [
-        "Squat à la poulie basse",
-        "Poulie basse + barre (si trajectoire stable)",
+        "Développé épaules debout avec haltères",
+        "Deux haltères · épaules avant / milieu",
         "3 × 8–12",
         {
-          "name": "Squat à la poulie basse",
-          "equipment": "Station MARCY",
+          "name": "Développé épaules debout avec haltères",
+          "equipment": "Deux haltères · deltoïdes antérieurs et moyens",
           "steps": [
-            "Avec la barre fixée à la poulie basse, trouve une position dans l’axe du câble, pieds stables.",
-            "Fléchis les genoux et les hanches en gardant le tronc gainé et les talons au sol.",
-            "Pousse dans les pieds pour remonter; pas d’à-coups ni de traction qui déstabilise la machine."
+            "Debout, pieds stables et abdominaux contractés, place les haltères à hauteur d'épaules.",
+            "Pousse vers le haut dans une trajectoire confortable, sans exagérer la cambrure ni hausser violemment les épaules.",
+            "Redescends sous contrôle au niveau des épaules et répète. Utilise une charge permettant de garder le tronc immobile."
           ],
+          "note": "Pas besoin de banc. Si tu dois cambrer fortement pour monter la charge, réduis le poids.",
           "images": [
-            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Bodyweight_Squat/0.jpg",
-            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Bodyweight_Squat/1.jpg"
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Dumbbell_Press/0.jpg",
+            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Dumbbell_Press/1.jpg"
           ],
           "captions": [
-            "Position initiale (illustration)",
-            "Position finale (illustration)"
+            "Départ du mouvement",
+            "Fin du mouvement"
           ],
-          "note": "Si la machine ne permet pas une trajectoire sûre, remplace par un split squat contrôlé, 3 × 8–12 par jambe. Illustration du mouvement de squat uniquement : elle ne montre pas la traction à la poulie basse MARCY.",
-          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Bodyweight_Squat"
+          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Dumbbell_Press"
         },
-        "v3_sam_squat"
+        "v3_sam_db_press"
       ],
       [
-        "Élévations latérales",
-        "Poulie basse + poignée individuelle",
+        "Élévations latérales avec haltères",
+        "Deux haltères · deltoïdes moyens",
         "3 × 12–20",
-        null,
-        "v3_sam_lateral"
+        "g26",
+        "v3_sam_db_lateral"
       ],
       [
-        "Tirage deltoïde arrière unilatéral",
-        "Poulie haute + poignée (si trajectoire fluide)",
-        "3 × 12–15 / bras",
-        {
-          "name": "Tirage deltoïde arrière unilatéral",
-          "equipment": "Station MARCY",
-          "steps": [
-            "Place-toi légèrement de côté face à la poulie haute et saisis la poignée d’une main.",
-            "Garde le bras légèrement fléchi et dirige le coude vers l’extérieur/arrière, sans tourner le buste.",
-            "Ramène lentement en gardant l’épaule basse."
-          ],
-          "images": [
-            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Rear_Delt_Fly/0.jpg",
-            "https://raw.githubusercontent.com/yuhonas/free-exercise-db/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Rear_Delt_Fly/1.jpg"
-          ],
-          "captions": [
-            "Position initiale (illustration)",
-            "Position finale (illustration)"
-          ],
-          "note": "Fais ce mouvement seulement si la trajectoire est fluide et sans frottement; sinon remplace par l’oiseau sans charge ou avec une petite charge. La photo illustre un reverse fly à la poulie avec une configuration différente; pour ton tirage unilatéral, adapte le trajet du câble et réduis la charge.",
-          "source": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Rear_Delt_Fly"
-        },
-        "v3_sam_rear"
+        "Oiseau avec haltères (deltoïdes arrière)",
+        "Deux haltères + chaise stable · arrière des épaules",
+        "2 × 12–20",
+        "g7",
+        "v3_sam_db_rear"
       ]
     ]
   },
