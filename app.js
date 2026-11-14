@@ -3,6 +3,7 @@ const Fitness = (() => {
   const program = typeof module !== 'undefined' ? require('./program.js') : PROGRAM;
   const guides = typeof module !== 'undefined' ? require('./guides.js') : GUIDES;
   const KEY='otmabinks-training-club-v2', LEGACY_KEY='otma_fit_tracker_v1';
+  const RETIRED_CHECK_IDS = new Set(["0:v3_lun_fly","0:v3_lun_overhead","1:v3_mar_reverse","1:v3_mar_seated","1:v3_mar_standing","3:v3_jeu_fly","3:v3_jeu_lateral","3:v3_jeu_overhead","4:v3_ven_reverse","4:v3_ven_seated","4:v3_ven_unilateral","5:v3_sam_lateral","5:v3_sam_rear","5:v3_sam_squat"]);
   const dateKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
   function monday(date=new Date()){const d=new Date(date);d.setHours(12,0,0,0);d.setDate(d.getDate()-(d.getDay()+6)%7);return dateKey(d);}
   function offset(key,n){const d=new Date(`${key}T12:00:00`);d.setDate(d.getDate()+n);return dateKey(d);}
@@ -17,7 +18,7 @@ const Fitness = (() => {
       const match=/^([0-6]):(\d{1,2})$/.exec(key);
       const extra=/^([0-5]):x_([a-zA-Z0-9_-]+)$/.exec(key);
       const stable=/^([0-5]):(v3_[a-zA-Z0-9_-]+)$/.exec(key);
-      const known=match&&program[+match[1]].items[+match[2]] || extra&&extras.some(e=>e.day===+extra[1]&&e.id===extra[2]) || stable&&(program[+stable[1]].items.some(e=>e[4]===stable[2]) || key==='1:v3_mar_seated' || key==='4:v3_ven_seated' || key==='0:v3_lun_fly' || key==='3:v3_jeu_fly');
+      const known=match&&program[+match[1]].items[+match[2]] || extra&&extras.some(e=>e.day===+extra[1]&&e.id===extra[2]) || stable&&(program[+stable[1]].items.some(e=>e[4]===stable[2]) || RETIRED_CHECK_IDS.has(key));
       if(!known||typeof value!=='boolean')throw Error('Une case du suivi est invalide.');
       week.checks[key]=value;
     }
@@ -114,7 +115,7 @@ if(typeof document!=='undefined'){
             const match=/^([0-6]):(\d{1,2})$/.exec(k);
             const extra=/^([0-5]):x_([a-zA-Z0-9_-]+)$/.exec(k);
             const stable=/^([0-5]):(v3_[a-zA-Z0-9_-]+)$/.exec(k);
-            if(match&&program[+match[1]]?.items[+match[2]]||extra&&cleaned.extras.some(e=>e.day===+extra[1]&&e.id===extra[2])||stable&&(program[+stable[1]]?.items.some(e=>e[4]===stable[2])||k==='1:v3_mar_seated'||k==='4:v3_ven_seated'||k==='0:v3_lun_fly'||k==='3:v3_jeu_fly'))checks[k]=v;
+            if(match&&program[+match[1]]?.items[+match[2]]||extra&&cleaned.extras.some(e=>e.day===+extra[1]&&e.id===extra[2])||stable&&(program[+stable[1]]?.items.some(e=>e[4]===stable[2])||RETIRED_CHECK_IDS.has(k)))checks[k]=v;
           }
           for(const [k,v] of Object.entries(record.complete||{}))if(/^[0-6]$/.test(k)&&typeof v==='boolean')complete[k]=v;
           cleaned.weeks[weekKey]={checks,complete};
